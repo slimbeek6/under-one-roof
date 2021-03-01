@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        contact: {
+        contact: [{
           email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -25,8 +25,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             isNumeric: true
           }
-        },
-        emergency: {
+        }],
+        emergency: [{
           name: {
             type: DataTypes.STRING,
           },
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
           phone: {
             type: DataTypes.STRING
           }
-        }
+        }]
     });
     
     // User.prototype.validPassword = function(password) {
@@ -66,11 +66,11 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 
-    User.associate = function(models) {
-      User.hasMany(models.Event, {
-          // onDelete: "cascade"
-      });
-    };
+    // User.associate = function(models) {
+    //   User.hasMany(models.Event, {
+    //       // onDelete: "cascade"
+    //   });
+    // };
 
     return User;
 };
