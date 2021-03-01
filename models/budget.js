@@ -1,35 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
     var Budget = sequelize.define("Budget", {
-        expenseName: {
-            type: DataTypes.String,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        expenseAmount: {
-            type: DataTypes.Decimal,
-            allowNull: false,
-            validate: {
-                gt: 0
-            }
-        },
-        expenseDate: {
-            type: DataTypes.Date,
+        rent: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        expenseType: {
-            type: DataTypes.ENUM('rent', 'utilities', 'other'),
+        utilities: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        paid: {
-            type: DataTypes.Boolean,
-            default: false
+        rent: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
-        paidBy: {
-            type: DataTypes.String
-        }
+
     });
+
+    Budget.associate = function(models) {
+        Budget.belongsTo(models.Home);
+    };
+
+    Budget.associate = function(models) {
+        Budget.hasMany(models.Expense);
+    };
 
     Budget.associate = function(models) {
         Budget.hasMany(models.User);

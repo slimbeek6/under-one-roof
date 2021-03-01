@@ -2,3 +2,5 @@
 DROP DATABASE IF EXISTS household;
 -- Creates the "blogger" database --
 CREATE DATABASE household;
+
+USE household;
