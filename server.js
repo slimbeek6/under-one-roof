@@ -12,8 +12,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Routes
-const routes = require("./routes/apiRoutes.js")
+const routes = require("./routes/apiRoutes.js");
 app.use(routes);
+
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
