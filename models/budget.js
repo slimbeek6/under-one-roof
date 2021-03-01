@@ -1,21 +1,21 @@
 module.exports = function(sequelize, DataTypes) {
     var Budget = sequelize.define("Budget", {
         expenseName: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
         expenseAmount: {
-            type: DataTypes.Decimal,
+            type: DataTypes.DECIMAL,
             allowNull: false,
             validate: {
                 gt: 0
             }
         },
         expenseDate: {
-            type: DataTypes.Date,
+            type: DataTypes.DATE,
             allowNull: false
         },
         expenseType: {
@@ -23,11 +23,11 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         paid: {
-            type: DataTypes.Boolean,
+            type: DataTypes.BOOLEAN,
             default: false
         },
         paidBy: {
-            type: DataTypes.String
+            type: DataTypes.STRING
         }
     });
 
