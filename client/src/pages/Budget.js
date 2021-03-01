@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
-import { ADD_EXPENSE, UPDATE_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
+import { ADD_EXPENSE, UPDATE_EXPENSE, REMOVE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 
 const Budget = () => {
     const [state, dispatch] = useStoreContext();
