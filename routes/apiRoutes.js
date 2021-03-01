@@ -5,8 +5,8 @@ const path = require("path");
 const router = require("express").Router();
 
 // API Routes
-router.route("/route")
-.get(controller.action);
+// router.route("/api/")
+// .get(controller.action);
 
 
 

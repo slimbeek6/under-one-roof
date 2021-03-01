@@ -10,32 +10,30 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        // contact: [{
-        //   email: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [3],
-        //         isEmail: true 
-        //     }
-        //   },
-        //   phone: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     isNumeric: true
-        //   }
-        // }],
-        // emergency: [{
-        //   name: {
-        //     type: DataTypes.STRING,
-        //   },
-        //   relationship: {
-        //     type: DataTypes.STRING
-        //   },
-        //   phone: {
-        //     type: DataTypes.STRING
-        //   }
-        // }]
+
+        contactEmail: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [3],
+                isEmail: true 
+            }
+        },
+        contactPhone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            isNumeric: true
+        },
+        emergencyName: {
+          type: DataTypes.STRING,
+        },
+        emergencyRelationship: {
+          type: DataTypes.STRING
+        },
+        emergencyPhone: {
+          type: DataTypes.STRING
+        }
+
     });
     
     // User.prototype.validPassword = function(password) {
@@ -59,17 +57,16 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 
-    User.associate = function(models) {
-      User.hasOne(models.Budget, {
-          // onDelete: "cascade"
-      });
+    User.associate = models => {
+      models.User.hasMany(models.Budget, { onDelete: "cascade"})
+      models.User.hasMany(models.UserBudget, { onDelete: "cascade"})
     };
 
-    User.associate = function(models) {
-      User.hasMany(models.Event, {
-          // onDelete: "cascade"
-      });
-    };
+    // User.associate = function(models) {
+    //   User.hasMany(models.Event, {
+    //       // onDelete: "cascade"
+    //   });
+    // };
 
     return User;
 };

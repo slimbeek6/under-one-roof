@@ -24,7 +24,7 @@ const Budget = () => {
 
     const removeExpense = (id) => {
         dispatch({
-            type: REMOVE_EXPENSE,
+            type: DELETE_EXPENSE,
             _id: state.currentExpense._id
         });
     };
@@ -77,3 +77,5 @@ const Budget = () => {
         )}</>
     )
 };
+
+export default Budget;
