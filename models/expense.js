@@ -1,6 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Budget = sequelize.define("Budget", {
-<<<<<<< HEAD
         expenseName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -17,17 +16,12 @@ module.exports = function(sequelize, DataTypes) {
         },
         expenseDate: {
             type: DataTypes.DATE,
-=======
-        rent: {
-            type: DataTypes.INTEGER,
->>>>>>> 216198794e9ba2a0d9d1f0b677592040d5781f7c
             allowNull: false
         },
-        utilities: {
-            type: DataTypes.INTEGER,
+        expenseType: {
+            type: DataTypes.ENUM('rent', 'utilities', 'other'),
             allowNull: false
         },
-<<<<<<< HEAD
         paid: {
             type: DataTypes.BOOLEAN,
             default: false
@@ -35,26 +29,15 @@ module.exports = function(sequelize, DataTypes) {
         paidBy: {
             type: DataTypes.STRING
         }
-=======
-        rent: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-
->>>>>>> 216198794e9ba2a0d9d1f0b677592040d5781f7c
     });
 
-    Budget.associate = function(models) {
-        Budget.belongsTo(models.Home);
+    Expense.associate = function(models) {
+        Expense.belongsTo(models.User);
     };
 
-    Budget.associate = function(models) {
-        Budget.hasMany(models.Expense);
+    Expense.associate = function(models) {
+        Expense.belongsTo(models.Home);
     };
 
-    Budget.associate = function(models) {
-        Budget.hasMany(models.User);
-    };
-
-    return Budget;
+    return Expense;
 };

@@ -28,6 +28,10 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+<<<<<<< HEAD
     "sequelize": "^4.41.2"
+=======
+    "sequelize": "^4.42.1"
+>>>>>>> 216198794e9ba2a0d9d1f0b677592040d5781f7c
   }
 }
