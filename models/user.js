@@ -2,7 +2,6 @@
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        
         firstName: {
             type: DataTypes.STRING,
             allowNull: true
@@ -11,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
+
         contactEmail: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
         emergencyPhone: {
           type: DataTypes.STRING
         }
+
     });
     
     // User.prototype.validPassword = function(password) {
