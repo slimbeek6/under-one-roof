@@ -5,8 +5,8 @@ const path = require("path");
 const router = require("express").Router();
 
 // API Routes
-router.route("/route")
-.get(controller.action);
+// router.route("/route")
+// .get(controller.action);
 
 
 
@@ -15,7 +15,7 @@ router.route("/route")
 // we need to send the client the compiled index.html file
 if (process.env.NODE_ENV === "production") {
     router.use(function (req, res) {
-      res.sendFile(path.join(__dirname, "../client/build/index.html"))
+      res.sendFile(path.join(__dirname, "../client/public/index.html"))
     })
 }
   
