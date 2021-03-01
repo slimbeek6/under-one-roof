@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
-import { ADD_EXPENSE, UPDATE_EXPENSE, REMOVE_EXPENSE, GET_EXPENSES } from "../utils/actions";
+import { ADD_EXPENSE, UPDATE_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 
 const Budget = () => {
     const [state, dispatch] = useStoreContext();
@@ -24,7 +24,7 @@ const Budget = () => {
 
     const removeExpense = (id) => {
         dispatch({
-            type: REMOVE_EXPENSE,
+            type: DELETE_EXPENSE,
             _id: state.currentExpense._id
         });
     };
