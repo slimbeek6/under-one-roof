@@ -5,3 +5,7 @@
 .container-fluid {
     margin: 1%; 
 }
+
+th {
+    width: 180 px;
+}
