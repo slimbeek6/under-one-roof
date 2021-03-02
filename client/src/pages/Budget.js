@@ -65,7 +65,7 @@ const Budget = () => {
                             </div>
                             <div className="col-md-6">
                                 <h3>Largest Other Expenses:</h3>
-                                <table>
+                                <table border="1" style={{width: "80%", textAlign: "center"}}>                           
                                     <tr>
                                         <th>Expense Name</th>
                                         <th>Expense Amount</th>
