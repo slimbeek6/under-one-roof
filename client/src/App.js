@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Budget from "./pages/Budget";
 // import Chores from "./pages/Chores";
 import Calendar from "./pages/Calendar";
-// import { StoreProvider } from "./utils/GlobalState";
+import { StoreProvider } from "./utils/GlobalState";
 import Nav from "./components/Nav"
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* <StoreProvider> */}
+        <StoreProvider>
           <Nav />
           <Switch>
             {/* <Route exact path="/" component={Home} />
@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/calendar" component={Calendar} />
             {/* <Route exact path="/chores" component={Chores} /> */}
           </Switch>
-        {/* </StoreProvider> */}
+        </StoreProvider>
       </div>
     </Router>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import MiniCalendar from '../components/MiniCalendar';
 
 function Calendar() {
   return (
@@ -8,7 +9,7 @@ function Calendar() {
           Announcement Area
         </div>
         <div className="col-4 border">
-          Mini-calendar area
+          <MiniCalendar />
         </div>
       </header>
       <main className="row">
