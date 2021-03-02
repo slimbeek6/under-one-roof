@@ -1,17 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
     var Chore = sequelize.define("Chore", {
 
-        name: {
+        choreName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {len: [1]}
         },
-        description: {
+        choreDescription: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {len: [1]}
         },
-        frequency: {
+        choreFrequency: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
