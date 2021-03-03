@@ -6,8 +6,16 @@ import {
     GET_EXPENSES
 } from "./actions";
 
-const StoreContext = createContext();
-const {Provider} = StoreContext;
+const ExpenseContext = createContext({
+    expenseName: "",
+    expenseAmount: "",
+    expenseDate: Date.now(),
+    expenseType: "",
+    paid: false,
+    paidBy: ""
+});
+
+const {Provider} = ExpenseContext;
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -33,7 +41,7 @@ const reducer = (state, action) => {
     }
 };
 
-const StoreProvider = ({value =[], ...props}) => {
+const ExpenseProvider = ({value =[], ...props}) => {
     const [state, dispatch] = useReducer(reducer, {
         expenses: []
     });
@@ -41,8 +49,8 @@ const StoreProvider = ({value =[], ...props}) => {
     return <Provider value={[state, dispatch]}{...props} />;
 };
 
-const useStoreContext = () => {
-    return useContext(StoreContext);
+const useExpenseContext = () => {
+    return useContext(ExpenseContext);
 };
 
-export { StoreProvider, useStoreContext };
+export { ExpenseProvider, useExpenseContext };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-import { useStoreContext } from "../utils/GlobalState";
+import { useExpenseContext } from "../utils/GlobalState";
 import { ADD_EXPENSE, UPDATE_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 import "./style.css";
 
@@ -9,14 +9,10 @@ const Budget = () => {
     // const expnameRef = useRef();
     // const expamtRef = useRef();
     // const exptypeRef = useRef();
-    // const [state, dispatch] = useStoreContext();
 
-    // const newExpense = {
-    //     expenseName: expnameRef.current.value,
-    //     expenseAmount: expamtRef.current.value,
-    //     expenseType: exptypeRef.current.value,
-    //     expenseDate: Date.now()
-    // }
+    // const [_, dispatch] = useExpenseContext();
+
+    
 
     // const getBudget = () => {
     //     dispatch({ type: GET_EXPENSES })
@@ -27,9 +23,15 @@ const Budget = () => {
     // }, []);
 
     // const addExpense = () => {
+    //     let newExpense = {
+    //         expenseName: expnameRef.current.value,
+    //         expenseAmount: expamtRef.current.value,
+    //         expenseType: exptypeRef.current.value,
+    //         expenseDate: Date.now()
+    //     }
     //     dispatch({
     //         type: ADD_EXPENSE,
-    //         expense: newExpense
+    //         expenseData: newExpense
     //     });
     // };
 
@@ -43,7 +45,11 @@ const Budget = () => {
                 <div className="row">
                     <div className="card col-md-5">
                         <h2>Total Budget</h2>
-                        <p><strong>Pie Chart Here populated by GlobalState</strong></p>
+                        <div class="row justify-content-center my-4">
+                            <div class="col-9 chart">
+                                <canvas id="piechart"></canvas>
+                            </div>
+                        </div>
                     </div>
                     <div className="card col-md-5">
                         <h2>Roommate Budget and Payments</h2>
