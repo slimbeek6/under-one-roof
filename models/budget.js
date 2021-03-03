@@ -23,10 +23,10 @@ module.exports = function(sequelize, DataTypes) {
         Budget.hasMany(models.Expense);
     };
 
-    Budget.associate = models => {
-        models.Budget.belongsTo(models.User, {as : "expenseReporter"})
-        models.Budget.hasMany(models.UserBudget, { onDelete: "cascade"})
-    };
+//     Budget.associate = models => {
+//         models.Budget.belongsTo(models.User, {as : "expenseReporter"})
+//         models.Budget.hasMany(models.UserBudget, { onDelete: "cascade"})
+//     };
 
     return Budget;
 };
