@@ -11,6 +11,7 @@ export default {
   },
   // Saves a new expense to the database
   addExpense: function(expenseData) {
-    return axios.post("/api/expenses", expenseData);
+    console.log(expenseData);
+    return axios.post("/api/expenses/new", expenseData);
   }
 };
