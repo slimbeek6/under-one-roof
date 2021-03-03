@@ -1,12 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-      
-      name: {
+      title: {
           type: DataTypes.STRING,
           allowNull: false
       },
       date: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
       },
       description: {
@@ -15,12 +14,10 @@ module.exports = function(sequelize, DataTypes) {
       }
   });
 
-  // Event.associate = function(models) {
-  //     Event.hasOne(models.User, {
-  //         // onDelete: "cascade"
-  //     });
-  // };
-
-
+  Event.associate = models => {
+      models.Event.belongsTo(models.User, { as: "host" })
+      models.Event.hasMany(models.UserEvent, { onDelete: "cascade" })
+  };
+  
   return Event;
 };

@@ -13,5 +13,15 @@ export default {
   addExpense: function(expenseData) {
     console.log(expenseData);
     return axios.post("/api/expenses/new", expenseData);
+  },
+  // EVENTS
+  getEvents: () => {
+    return axios.get('/api/events');
+  },
+  saveEvent: data => {
+    return axios.post('/api/events', data);
+  },
+  deleteEvent: id => {
+    return axios.delete('/api/events/' + id);
   }
 };
