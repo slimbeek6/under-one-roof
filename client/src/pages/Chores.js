@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-import { useStoreContext } from "../utils/GlobalState";
+import { useChoreContext } from "../utils/GlobalState";
 // import { ADD_CHORE, UPDATE_CHORE, DELETE_CHORE, GET_CHORES } from "../utils/actions";
 import "./style.css";
 
@@ -95,7 +95,13 @@ const Chores = () => {
                         </table>
                     </div>
                     <div className="row">
-                        
+                        <h2>Add a New Chore:</h2>
+                        <form className="form-group" onSubmit={addChore}>
+                            <input className="form-control mb-5" required ref={choreNameRef} placeholder="Name of chore" />
+                            <input className="form-control mb-5" required ref={choreDescRef} placeholder="Brief description of chore" />
+                            <input className="form-control mb-5" required ref={choreFreqRef} placeholder="How often (in days) should the chore be done?" />
+                            <button className="btn btn-success mt-3 mb-5" type="submit">Add Chore</button>
+                        </form>
                     </div>
                 </div>
             </div>
