@@ -2,24 +2,18 @@ module.exports = function(sequelize, DataTypes) {
     var Expense = sequelize.define("Expense", {
         expenseName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         },
         expenseAmount: {
             type: DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {
-                gt: 0
-            }
+            allowNull: false
         },
         expenseDate: {
             type: DataTypes.DATE,
             allowNull: false
         },
         expenseType: {
-            type: DataTypes.ENUM('rent', 'utilities', 'other'),
+            type: DataTypes.STRING,
             allowNull: false
         },
         paid: {
@@ -31,13 +25,13 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    Expense.associate = function(models) {
-        Expense.belongsTo(models.User);
-    };
+    // Expense.associate = function(models) {
+    //     Expense.belongsTo(models.User);
+    // };
 
-    Expense.associate = function(models) {
-        Expense.belongsTo(models.Home);
-    };
+    // Expense.associate = function(models) {
+    //     Expense.belongsTo(models.Home);
+    // };
 
     return Expense;
 };

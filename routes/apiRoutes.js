@@ -3,10 +3,13 @@
 var db = require("../models");
 const path = require("path");
 const router = require("express").Router();
+const expenseController = require("../controllers/expenseController");
 
 // API Routes
-// router.route("/api/")
-// .get(controller.action);
+router
+  .route("/api/expenses")
+  .post(expenseController.add)
+  .get(expenseController.findAll);
 
 
 

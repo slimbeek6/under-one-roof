@@ -1,37 +1,40 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-import { useStoreContext } from "../utils/GlobalState";
+import { useExpenseContext } from "../utils/GlobalState";
 import { ADD_EXPENSE, UPDATE_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 import "./style.css";
 
+
 const Budget = () => {
-    // const expnameRef = useRef();
-    // const expamtRef = useRef();
-    // const exptypeRef = useRef();
-    // const [state, dispatch] = useStoreContext();
+    const expnameRef = useRef();
+    const expamtRef = useRef();
+    const exptypeRef = useRef();
 
-    // const newExpense = {
-    //     expenseName: expnameRef.current.value,
-    //     expenseAmount: expamtRef.current.value,
-    //     expenseType: exptypeRef.current.value,
-    //     expenseDate: Date.now()
-    // }
+    
+    const expenseList = [];
+    
+    const getExpenses = () =>{
+        API.getExpenses()
+        .then(results => {
+            expenseList.push(results);
+            console.log(expenseList);
+        });
+        // .then(expenseList.push());
+    }
 
-    // const getBudget = () => {
-    //     dispatch({ type: GET_EXPENSES })
-    // };
+    getExpenses();
 
-    // useEffect(() =>{
-    //     getBudget();
-    // }, []);
-
-    // const addExpense = () => {
-    //     dispatch({
-    //         type: ADD_EXPENSE,
-    //         expense: newExpense
-    //     });
-    // };
+    const addExpense = () => {
+        let newExpense = {
+            expenseName: expnameRef.current.value,
+            expenseAmount: expamtRef.current.value,
+            expenseType: exptypeRef.current.value,
+            expenseDate: Date.now()
+        }
+        console.log(newExpense);
+        API.addExpense(newExpense);
+    };
 
     return (
             <div className="container-fluid">
@@ -43,7 +46,11 @@ const Budget = () => {
                 <div className="row">
                     <div className="card col-md-5">
                         <h2>Total Budget</h2>
-                        <p><strong>Pie Chart Here populated by GlobalState</strong></p>
+                        <div class="row justify-content-center my-4">
+                            <div class="col-9 chart">
+                                <canvas id="piechart"></canvas>
+                            </div>
+                        </div>
                     </div>
                     <div className="card col-md-5">
                         <h2>Roommate Budget and Payments</h2>
@@ -56,12 +63,12 @@ const Budget = () => {
                         <div className="row">
                             <div className="col-md-6">
                                 <h3>Add New Expense:</h3>
-                                {/* <form className="form-group" onSubmit={addExpense}>
+                                <form className="form-group" onSubmit={addExpense}>
                                     <input className="form-control mb-5" required ref={expnameRef} placeholder="Name of Expense"/>
                                     <input className="form-control mb-5" required ref={expamtRef} placeholder="Expense Amount" />
                                     <input className="form-control mb-5" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
                                     <button className="btn btn-success mt-3 mb-5" type="submit">Save Expense</button>
-                                </form> */}
+                                </form>
                             </div>
                             <div className="col-md-6">
                                 <h3>Largest Other Expenses:</h3>
@@ -72,7 +79,7 @@ const Budget = () => {
                                         <th>Expense Submitted By</th>
                                     </tr>
                                     <tr>
-                                        <td>Rent</td>
+                                        <td></td>
                                         <td>$1000</td>
                                         <td>Dave</td>
                                     </tr>    

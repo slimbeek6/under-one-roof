@@ -1,11 +1,11 @@
-// import React, { useEffect, useRef } from "react";
-// import { Link } from "react-router-dom";
-// import API from "../utils/API";
-// import { useStoreContext } from "../utils/GlobalState";
-// import { ADD_CHORE, UPDATE_CHORE, DELETE_CHORE, GET_CHORES } from "../utils/actions";
-// import "./style.css";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import API from "../utils/API";
+import { useStoreContext } from "../utils/GlobalState";
+import { ADD_CHORE, UPDATE_CHORE, DELETE_CHORE, GET_CHORES } from "../utils/actions";
+import "./style.css";
 
-// const Chores = () => {
+const Chores = () => {
 //     const choreNameRef = useRef();
 //     const choreDescRef = useRef();
 //     const choreFreqRef = useRef();
@@ -47,9 +47,11 @@
 //         });
 //     };
 
-//     return (
+    return (
+        <div>
+            
+        </div>
+    )
+};
 
-//     )
-// };
-
-// export default Chores;
+export default Chores;
