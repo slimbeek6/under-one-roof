@@ -15,11 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       }
   });
 
-  Event.associate = function(models) {
-      Event.hasOne(models.User, {
-          // onDelete: "cascade"
-      });
-  };
+  // Event.associate = function(models) {
+  //     Event.hasOne(models.User, {
+  //         // onDelete: "cascade"
+  //     });
+  // };
 
 
   return Event;
