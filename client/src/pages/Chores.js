@@ -69,8 +69,36 @@ const Chores = () => {
     // };
 
     return (
-        <div>
-            
+        <div className="container-fluid">
+            <div className="row-fluid">
+                <div className="col md-12">
+                    <h1>Household Chores</h1>
+                </div>
+            </div>
+            <div className="row">
+                <div className="card col-md-6">
+                    <h2>Chore List:</h2>
+                    <div className="row">
+                        <table border="1" style={{width: "80%", textAlign: "center"}}>
+                            <tr>
+                                <th>Chore Name</th>
+                                <th>Chore Description</th>
+                                <th>Chore Frequency</th>
+                                <th>Currently Assigned To</th>
+                            </tr>
+                            <tr>
+                                <td>Refrigerator</td>
+                                <td>Clean the refrigerator, throw out any old food and sanitize shelves</td>
+                                <td>30 days</td>
+                                <td>Ryan</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div className="row">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };
