@@ -5,7 +5,7 @@ const path = require("path");
 const router = require("express").Router();
 const expenseController = require("../controllers/expenseController");
 const verifySignUp = require("../config/middleware/verifySignUp");
-const controller = require("../controllers/auth.controller");
+const authController = require("../controllers/auth.controller");
 
 // API Routes
 router
@@ -27,11 +27,11 @@ router
   [
     verifySignUp.checkDuplicateUsernameOrEmail
   ],
-  controller.signup)
+  authController.signup);
 
 router
   .route("/api/auth/signin")
-  .post(controller.signin);
+  .post(authController.signin);
 
 
 
