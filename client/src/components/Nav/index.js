@@ -34,6 +34,14 @@ function Navbar() {
               Calendar
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              to="/expenses"
+              className={window.location.pathname === "/expenses" ? "nav-link active" : "nav-link"}
+            >
+              Expenses
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
