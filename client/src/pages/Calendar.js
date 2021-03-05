@@ -4,7 +4,7 @@ import Event from '../components/Event';
 
 function Calendar() {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <header className="row p-3">
         <div className="col-8 border">
           Announcement Area
