@@ -4,17 +4,26 @@ var db = require("../models");
 const path = require("path");
 const router = require("express").Router();
 const expenseController = require("../controllers/expenseController");
+const choreController = require("../controllers/choreController");
 const verifySignUp = require("../config/middleware/verifySignUp");
 const authController = require("../controllers/auth.controller");
 
 // API Routes
+// =============================================================
+
+// Expenses
 router
   .route("/api/expenses")
   .post(expenseController.add)
   .get(expenseController.findAll);
 
+// Chores
+router
+  .route("/api/chores")
+  .post(choreController.add)
+  .get(choreController.findAll);
 
-// Authentication routes
+// Authentication
 router.use(function(req, res, next) {
   res.header(
     "Access-Control-Allow-Headers",
