@@ -15,6 +15,7 @@ export default {
     return axios.post("/api/expenses/new", expenseData);
   },
 
+
   // Gets all chores
   getChores: function() {
     return axios.get("/api/chores");
@@ -31,4 +32,16 @@ export default {
   updateChore: function(id) {
     return axios.put("/api/chores/update/" + id);
   },
+
+  // EVENTS
+  getEvents: () => {
+    return axios.get('/api/events');
+  },
+  saveEvent: data => {
+    return axios.post('/api/events', data);
+  },
+  deleteEvent: id => {
+    return axios.delete('/api/events/' + id);
+  }
+
 };

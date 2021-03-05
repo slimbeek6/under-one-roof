@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand mx-3" to="/">
         Home
       </Link>
       <div>
@@ -32,6 +32,14 @@ function Navbar() {
               className={window.location.pathname === "/calendar" ? "nav-link active" : "nav-link"}
             >
               Calendar
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/expenses"
+              className={window.location.pathname === "/expenses" ? "nav-link active" : "nav-link"}
+            >
+              Expenses
             </Link>
           </li>
         </ul>

@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Home from "./pages/Home";
 import Budget from "./pages/Budget";
 import Chores from "./pages/Chores";
-// import Calendar from "./pages/Calendar";
+import Calendar from "./pages/Calendar";
+import Expenses from "./pages/Expenses";
+import NoMatch from "./pages/NoMatch";
 import { ExpenseProvider } from "./utils/GlobalState";
 import Nav from "./components/Nav";
-import NoMatch from "./pages/NoMatch";
+
 
 function App() {
   return (
@@ -18,8 +20,9 @@ function App() {
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} /> */}
             <Route exact path="/budget" component={Budget} />
-            {/* <Route exact path="/calendar" component={Calendar} /> */}
+            <Route exact path="/calendar" component={Calendar} />
             <Route exact path="/chores" component={Chores} />
+            <Route exact path="/expenses" component={Expenses} />
             <Route component={NoMatch} />
           </Switch>
         </ExpenseProvider>

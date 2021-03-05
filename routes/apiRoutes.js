@@ -7,6 +7,7 @@ const expenseController = require("../controllers/expenseController");
 const choreController = require("../controllers/choreController");
 const verifySignUp = require("../config/middleware/verifySignUp");
 const authController = require("../controllers/auth.controller");
+const eventController = require("../controllers/eventController");
 
 // API Routes
 // =============================================================
@@ -16,6 +17,7 @@ router
   .route("/api/expenses")
   .post(expenseController.add)
   .get(expenseController.findAll);
+
 
 // Chores
 router
@@ -45,14 +47,19 @@ router
   .post(authController.signin);
 
 
-
+// EVENTS
+router
+  .route("/api/event")
+  .post(eventController.create)
+  .get(eventController.findAll)
+  .delete(eventController.delete)
 
 
 // send react app
 // we need to send the client the compiled index.html file
 if (process.env.NODE_ENV === "production") {
     router.use(function (req, res) {
-      res.sendFile(path.join(__dirname, "../client/build/index.html"))
+      res.sendFile(path.join(__dirname, "../client/public/index.html"))
     })
 }
   
