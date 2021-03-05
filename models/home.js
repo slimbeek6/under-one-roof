@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Home = sequelize.define("Home", {
-        homeName: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
@@ -12,11 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-                isAlphanumeric: true
-            }
+            allowNull: false 
         },
         email: {
             type: DataTypes.STRING,

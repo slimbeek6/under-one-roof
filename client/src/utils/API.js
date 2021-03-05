@@ -14,6 +14,25 @@ export default {
     console.log(expenseData);
     return axios.post("/api/expenses/new", expenseData);
   },
+
+
+  // Gets all chores
+  getChores: function() {
+    return axios.get("/api/chores");
+  },
+  // Deletes the chore with the given id
+  removeChore: function(id) {
+    return axios.delete("/api/chores/" + id);
+  },
+  // Saves a new chore
+  addChore: function(newChore) {
+    return axios.post("/api/chores/new", newChore);
+  },
+  // Update a chore with the given id
+  updateChore: function(id) {
+    return axios.put("/api/chores/update/" + id);
+  },
+
   // EVENTS
   getEvents: () => {
     return axios.get('/api/events');
@@ -24,4 +43,5 @@ export default {
   deleteEvent: id => {
     return axios.delete('/api/events/' + id);
   }
+
 };
