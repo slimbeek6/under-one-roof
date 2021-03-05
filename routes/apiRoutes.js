@@ -5,7 +5,8 @@ const path = require("path");
 const router = require("express").Router();
 const expenseController = require("../controllers/expenseController");
 const choreController = require("../controllers/choreController");
-const verifySignUp = require("../config/middleware/verifySignUp");
+// const verifySignUp = require("../config/middleware/verifySignUp");
+const { verifySignUp } = require("../config/middleware");
 const authController = require("../controllers/auth.controller");
 const eventController = require("../controllers/eventController");
 

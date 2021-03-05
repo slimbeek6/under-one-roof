@@ -56,7 +56,14 @@ exports.signin = (req, res) => {
                 expiresIn: 86400 // 24 hours
             });
             
-            res.json(user);
+            // res.json(user);
+
+            res.status(200).send({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                accessToken: token
+            });
 
          
         })
