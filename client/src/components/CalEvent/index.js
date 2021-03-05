@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-function Event() {
+function CalEvent() {
 
   return (
     <div className="row border p-3 m-0">
@@ -16,4 +16,4 @@ function Event() {
   );
 }
 
-export default Event;
+export default CalEvent;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MiniCal from '../components/MiniCal';
-import Event from '../components/Event';
+import CalEvent from '../components/CalEvent';
 
 function Calendar() {
   return (
@@ -16,7 +16,7 @@ function Calendar() {
       <main className="row">
         <div className="col-12 p-3">
           <button className="btn btn-primary m-0 mb-3">Add Event</button>
-          <Event />
+          <CalEvent />
         </div>
       </main>
     </div>

@@ -1,30 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Moment from "moment";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './index.css';
 
-class MiniCal extends Component {
-  state = {
-    date: new Date()
-  }
+function MiniCal() {
+  const [date, setDate] = useState(new Date())
 
-  onChange = event => {
+  const onChange = event => {
     console.log(event)
-    let newDate = Moment(event)
-    this.setState({ date: newDate })
+    setDate(new Date())
   }
 
-  render() {
-    return (
-      <div>
-        <Calendar
-        onChange={this.onChange}
-        value={this.state.date}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Calendar
+      onChange={onChange}
+      value={date}
+      />
+    </div>
+  );
 }
 
 export default MiniCal;
