@@ -28,14 +28,14 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
-    console.log("signin");
+    // console.log("signin");
     Home.findOne({
         where: {
             username: req.body.username
         }
     })
         .then(user => {
-            console.log(user)
+            // console.log(user)
             if (!user) {
                 return res.status(404).send({ message: "User Not found." });
             }
