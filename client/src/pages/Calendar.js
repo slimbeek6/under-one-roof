@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MiniCal from '../components/MiniCal';
+import CalEvent from '../components/CalEvent';
 
 function Calendar() {
   return (
-    <div className="container-fluid">
-      <header className="row">
+    <div className="container">
+      <header className="row p-3">
         <div className="col-8 border">
           Announcement Area
         </div>
@@ -13,8 +14,9 @@ function Calendar() {
         </div>
       </header>
       <main className="row">
-        <div className="col-12 border">
-          Event list area
+        <div className="col-12 p-3">
+          <button className="btn btn-primary m-0 mb-3">Add Event</button>
+          <CalEvent />
         </div>
       </main>
     </div>
