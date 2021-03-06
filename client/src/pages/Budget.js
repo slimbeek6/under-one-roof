@@ -78,12 +78,12 @@ const Budget = () => {
                         <div className="row">
                             <div className="col-md-6">
                                 <h3>Add New Expense:</h3>
-                                {/* <form className="form-group" onSubmit={addExpense}>
+                                <form className="form-group" onSubmit={addExpense}>
                                     <input className="form-control mb-5" required ref={expnameRef} placeholder="Name of Expense"/>
                                     <input className="form-control mb-5" required ref={expamtRef} placeholder="Expense Amount" />
                                     <input className="form-control mb-5" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
                                     <button className="btn btn-success mt-3 mb-5" type="submit">Save Expense</button>
-                                </form> */}
+                                </form>
                             </div>
                             <div className="col-md-6">
                                 <h3>Largest Expenses:</h3>
