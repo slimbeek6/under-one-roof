@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import MiniCal from '../components/MiniCal';
 import CalEvent from '../components/CalEvent';
 import EventForm from '../components/EventForm';
-import API from "../utils/API";
 
 function Calendar() {
-  const [events, setEvents] = useState([]);
-  const [addEvent, setAddEvent] = useState(false);
+  const [displayForm, setDisplayForm] = useState(false);
 
-  useEffect(() => {
-    API.getEvents()
-      .then(events => {
-        console.log(events)
-        setEvents(events)
-      }).catch(err => console.error(err))
-  }, [events])
+  const hideForm = (event) => {
+    handleButtonClick(event)
+    setDisplayForm(false)
+  }
+
+  const showForm = (event) => {
+    handleButtonClick(event)
+    setDisplayForm(true)
+  }
+
+  const handleButtonClick = event => {
+    event.preventDefault()
+  }
 
   return (
     <div className="container">
@@ -28,8 +32,8 @@ function Calendar() {
       </header>
       <main className="row">
         <div className="col-12 p-3">
-          <button className="btn btn-primary m-0 mb-3">Add Event</button>
-          {addEvent ? <EventForm /> : <CalEvent events={events}/>}
+          <button className="btn btn-primary m-0 mb-3" onClick={showForm}>Add Event</button>
+          {displayForm ? <EventForm hideForm={hideForm} /> : <CalEvent />}
         </div>
       </main>
     </div>
