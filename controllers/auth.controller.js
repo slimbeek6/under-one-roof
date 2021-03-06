@@ -28,12 +28,14 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
+    // console.log("signin");
     Home.findOne({
         where: {
             username: req.body.username
         }
     })
         .then(user => {
+            // console.log(user)
             if (!user) {
                 return res.status(404).send({ message: "User Not found." });
             }
@@ -52,6 +54,15 @@ exports.signin = (req, res) => {
 
             var token = jwt.sign({ id: user.id }, config.secret, {
                 expiresIn: 86400 // 24 hours
+            });
+            
+            // res.json(user);
+
+            res.status(200).send({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                accessToken: token
             });
 
          
