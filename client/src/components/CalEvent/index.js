@@ -1,18 +1,21 @@
 import React from 'react';
+import DayJS from 'react-dayjs';
 import './index.css';
 
-function CalEvent() {
+function CalEvent(props) {
 
   return (
-    <div className="row border p-3 m-0">
-      <h3 className="col-11">Event Title</h3>
-      <button className="col-1 btn btn-danger">Delete</button>
-      <p className="col-12 my-5">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit dolor eu tincidunt dapibus. Praesent facilisis in mauris sed pulvinar. Sed ut mattis lacus. Donec et gravida enim. Sed non feugiat nulla. Nulla ut nunc pharetra, blandit lacus in, scelerisque nibh. Vestibulum in massa quam. Nullam ultricies sed purus et ornare.
-      </p>
-      <p className="col-11">Posted by Ryan</p>
-      <button className="col-1 btn btn-warning" href="#">Edit</button>
-    </div>
+    <>
+      {props.events.map(event => {
+        <div className="row border p-3 m-0">
+          <h3 className="col-10"><DayJS element='span' format='MMM Do'>{event.date}</DayJS>: {event.title}</h3>
+          <div className="col-2">
+            <button className="btn edit">Edit</button>
+            <button className="btn delete ml-3">Delete</button>
+          </div>
+        </div>
+      })}
+    </>
   );
 }
 
