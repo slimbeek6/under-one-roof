@@ -81,7 +81,7 @@ const App = () => {
               Home
             </Link>
           </li>
-
+{/* These are the navbar items protected after auth */}
           {currentUser && (
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">
