@@ -9,8 +9,7 @@ function CalEvent() {
   useEffect(() => {
     API.getEvents()
       .then(results => {
-        let allEvents = results.data
-        setEvents(allEvents);
+        setEvents(results.data);
       }).catch(err => console.error(err))
   }, [])
 
@@ -30,7 +29,7 @@ function CalEvent() {
   return (
     events.map(event => (
       <div className="row m-0 my-4" key={event.id}>
-        <h3 className="col-11"><DayJS element="span" className="date" format='MMM D'>{event.date}</DayJS> {event.title}</h3>
+        <h3 className="col-11"><DayJS element="span" className="date" format='MMM D'>{event.eventDate}</DayJS> {event.eventName}</h3>
         <div className="col-1">
           {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
           <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>

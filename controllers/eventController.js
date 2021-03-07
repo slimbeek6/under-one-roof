@@ -15,18 +15,6 @@ module.exports = {
       .then(foundEvents => res.json(foundEvents))
       .catch(err => res.status(422).json(err));
   },
-  findFive: (req, res) => {
-    db.Event.findAll({
-      // where: {
-      //   date: {
-      //     [Op.gt]: dayjs().subtract(1, 'day').format('YYYY-MM-DD')
-      //   }
-      // }
-      limit: 5
-    })
-      .then(foundEvents => res.json(foundEvents))
-      .catch(err => res.status(422).json(err));
-  },
   // update: (req, res) => {
   //   db.Event.update(req.body, {
   //     where : { id: req.params.id }
