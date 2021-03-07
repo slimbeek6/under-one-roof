@@ -13,11 +13,14 @@ function EventForm(props) {
       title: calTitleRef.current.value,
       description: calDescRef.current.value
     }
+    if (newEvent.date === "" || newEvent.title === "") {
+      return alert("Please fill out date and title of event.")
+    }
     console.log(newEvent);
     API.saveEvent(newEvent).catch(err => console.error(err))
   }
 
-  const handleBtnClick = () => {
+  const handleSaveBtn = () => {
     saveEvent();
     props.hideForm();
   }
@@ -30,7 +33,7 @@ function EventForm(props) {
       <input className="col-12 form-control mb-3" type="text" placeholder="Title of event..." required ref={calTitleRef} />
       <label className="col-12 form-label">Description</label>
       <textarea className="col-12 form-control mb-3" type="text" rows="3" required ref={calDescRef}></textarea>
-      <button className="btn btn-primary ml-auto" onClick={handleBtnClick}>Save</button>
+      <button className="btn btn-primary ml-auto" onClick={handleSaveBtn}>Save</button>
     </form>
   );
 }
