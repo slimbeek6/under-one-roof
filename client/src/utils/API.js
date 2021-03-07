@@ -42,6 +42,14 @@ export default {
   },
   deleteEvent: id => {
     return axios.delete('/api/events/' + id);
+  },
+
+  //Auth
+  signup: (newUser) => {
+    return axios.post('/api/auth/signup', newUser);
+  },
+  signin: (user) => {
+    return axios.post('/api/auth/signin', user);
   }
 
 };
