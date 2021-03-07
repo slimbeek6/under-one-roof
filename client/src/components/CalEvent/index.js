@@ -28,13 +28,21 @@ function CalEvent() {
 
   return (
     events.map(event => (
-      <div className="row m-0 my-4" key={event.id}>
-        <h3 className="col-11"><DayJS element="span" className="date" format='MMM D'>{event.eventDate}</DayJS> {event.eventName}</h3>
-        <div className="col-1">
-          {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
-          <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
+      <>
+        <div className="row m-0 mt-4" key={event.id}>
+          <div className="col-2">
+            <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
+          </div>
+          <div className="col-9">
+            <h3 className="m-0">{event.eventName}</h3>
+          </div>
+          <div className="col-1 ml-auto">
+            {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
+            <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
+          </div>
         </div>
-      </div>
+        <hr/>
+      </>
     ))
   )
 }

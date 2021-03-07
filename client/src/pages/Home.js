@@ -56,7 +56,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <header>
+      <header className="p-5">
         <h3>Welcome home, Ryan!</h3>
       </header>
       <main className="row">

@@ -10,12 +10,12 @@ function ExpensesCard(props) {
     <div className="col-12 card-header text-center">
       {props.heading}
     </div>
-    <ul className="row list-group list-group-flush">
+    <ul className="col-12 list-group list-group-flush">
       {props.list.map(listItem => {
         return (
           <li className="list-group-item">
             {/* <span className="col-5 date">{listItem.expenseDate}</span> */}
-            <DayJS element="span" className=" col-5 date" format='MM-DD'>{listItem.expenseDate}</DayJS>
+            <DayJS element="span" className="col-5 date" format='MM-DD'>{listItem.expenseDate}</DayJS>
             <span className="col-12 name">{listItem.expenseName}</span>
           </li>
         )

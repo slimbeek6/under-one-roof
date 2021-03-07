@@ -9,7 +9,7 @@ function ChoresCard(props) {
     <div className="col-12 card-header text-center">
       {props.heading}
     </div>
-    <ul className="row list-group list-group-flush">
+    <ul className="col-12 list-group list-group-flush">
       {props.list.map(listItem => {
         return (
           <li className="list-group-item">
