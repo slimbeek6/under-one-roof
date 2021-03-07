@@ -23,6 +23,7 @@ function EventForm(props) {
   const handleSaveBtn = () => {
     saveEvent();
     props.hideForm();
+    document.location.reload()
   }
 
   return (

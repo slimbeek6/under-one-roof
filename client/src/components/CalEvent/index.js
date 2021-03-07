@@ -9,7 +9,6 @@ function CalEvent() {
   useEffect(() => {
     API.getEvents()
       .then(results => {
-        console.log(results.data);
         let allEvents = results.data
         setEvents(allEvents);
       }).catch(err => console.error(err))
@@ -25,6 +24,8 @@ function CalEvent() {
         document.location.reload()
       }).catch(err => console.error(err))
   }
+
+  console.log(events)
 
   return (
     events.map(event => (

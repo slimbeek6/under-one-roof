@@ -1,8 +1,29 @@
 const db = require('../models');
+const dayjs = require('dayjs');
+
+const dateCutOff= dayjs().subtract(1, 'day').format('YYYY-MM-DD');
 
 module.exports = {
   findAll: (req, res) => {
-    db.Event.findAll({})
+    db.Event.findAll({
+      // where: {
+      //   date: {
+      //     [Op.gt]: dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+      //   }
+      // }
+    })
+      .then(foundEvents => res.json(foundEvents))
+      .catch(err => res.status(422).json(err));
+  },
+  findFive: (req, res) => {
+    db.Event.findAll({
+      // where: {
+      //   date: {
+      //     [Op.gt]: dayjs().subtract(1, 'day').format('YYYY-MM-DD')
+      //   }
+      // }
+      limit: 5
+    })
       .then(foundEvents => res.json(foundEvents))
       .catch(err => res.status(422).json(err));
   },
