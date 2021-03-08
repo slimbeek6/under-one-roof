@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import API from "../utils/API";
 import { useExpenseContext } from "../utils/GlobalState";
-import  ExpenseTableRow  from "../components/ExpenseTableRows";
+import  ExpensesTbl  from "../components/ExpensesTbl";
 import { ADD_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 
 
@@ -40,16 +40,18 @@ const Expenses = () => {
             <div className="row">
                 <section className="card col-md-6">
                     <h3>All Expenses:</h3>
-                    <table border="1" style={{width: "90%", textAlign: "center"}}>                           
+                    <table border="1" style={{width: "96%", textAlign: "center"}}>                           
                         <tr>
                             <th>Expense Name</th>
                             <th>Expense Amount</th>
                             <th>Expense Type</th>
                             <th>Expense Paid?</th>
                             <th>Expense Paid By</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                         {state.expenses.map(expense => (
-                            <ExpenseTableRow  expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseType={expense.expenseType} paid={expense.paid} paidBy={expense.paidBy} /> 
+                            <ExpensesTbl  expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseType={expense.expenseType} paid={expense.paid} paidBy={expense.paidBy} id={expense.id}/> 
                         ))}
                     </table>
                 </section>
