@@ -15,8 +15,6 @@ import Profile from "./pages/Profile";
 import BoardUser from "./pages/BoardUser";
 
 
-// This is a fake comment.
-
 function App () {
   const [currentUser, setCurrentUser] = useState(undefined);
 
