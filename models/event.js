@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
       }
   });
 
-  Event.associate = models => {
-      models.Event.belongsTo(models.User, { as: "host" })
-      models.Event.hasMany(models.UserEvent, { onDelete: "cascade" })
-  };
+  // Event.associate = models => {
+  //     models.Event.belongsTo(models.User, { as: "host" })
+  //     models.Event.hasMany(models.UserEvent, { onDelete: "cascade" })
+  // };
   
   return Event;
 };
