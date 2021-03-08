@@ -2,25 +2,25 @@ import React from 'react';
 import './index.css';
 
 function CalEvent() {
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    API.getEvents()
-      .then(results => {
-        setEvents(results.data);
-      }).catch(err => console.error(err))
-  }, [])
+  // useEffect(() => {
+  //   API.getEvents()
+  //     .then(results => {
+  //       setEvents(results.data);
+  //     }).catch(err => console.error(err))
+  // }, [])
 
-  const handleDeleteBtn = event => {
-    let id = event.target.getAttribute('data-id');
-    console.log(id);
-    API.deleteEvent(id)
-      .then(res => {
-        console.log("Event deleted!")
-        setEvents(events)
-        document.location.reload()
-      }).catch(err => console.error(err))
-  }
+  // const handleDeleteBtn = event => {
+  //   let id = event.target.getAttribute('data-id');
+  //   console.log(id);
+  //   API.deleteEvent(id)
+  //     .then(res => {
+  //       console.log("Event deleted!")
+  //       setEvents(events)
+  //       document.location.reload()
+  //     }).catch(err => console.error(err))
+  // }
 
   return (
     <div className="row border p-3 m-0">
