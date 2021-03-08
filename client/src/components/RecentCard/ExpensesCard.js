@@ -3,25 +3,23 @@ import './index.css';
 import DayJS from 'react-dayjs';
 
 function ExpensesCard(props) {
-  console.log(props.list)
 
   return (
-  <div className="row card">
-    <div className="col-12 card-header text-center">
-      {props.heading}
-    </div>
-    <ul className="col-12 list-group list-group-flush">
+    <div>
+      <div className="row border">
+        <div className="col-12 listHeader text-center border">
+          {props.heading}
+        </div>
+      </div>
       {props.list.map(listItem => {
         return (
-          <li className="list-group-item" key={listItem.id}>
-            {/* <span className="col-5 date">{listItem.expenseDate}</span> */}
-            <DayJS element="span" className="col-5 date" format='MM-DD'>{listItem.expenseDate}</DayJS>
-            <span className="col-12 name">{listItem.expenseName}</span>
-          </li>
+          <div className="row listItem border px-1" key={listItem.id}>
+            <DayJS element="p" className="col-3 purple" format='MM-DD'>{listItem.expenseDate}</DayJS>
+            <p className="col-9">{listItem.expenseName}</p>
+          </div>
         )
       })}
-    </ul>
-  </div>
+    </div>
   )
 }
 
