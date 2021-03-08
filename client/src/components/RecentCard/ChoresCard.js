@@ -10,13 +10,13 @@ function ChoresCard(props) {
           {props.heading}
         </div>
       </div>
-      {props.list.map(listItem => {
+      {/* {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
             <p className="col-9">{listItem.choreName}</p>
           </div>
         )
-      })}
+      })} */}
     </div>
   
   )

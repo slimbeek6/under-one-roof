@@ -28,7 +28,6 @@ function Calendar() {
         <div className="col-12 p-3">
         <button className="btn btn-primary m-0 mb-3" onClick={showForm}>Add Event</button>
           {displayForm ? <EventForm hideForm={hideForm} /> : <CalEvent />}
-          <CalEvent />
         </div>
       </main>
     </div>
