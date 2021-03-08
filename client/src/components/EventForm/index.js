@@ -18,7 +18,7 @@ function EventForm(props) {
   const handleBtnClick = async () => {
     await saveEvent();
     props.hideForm();
-    document.location.reload()
+    // document.location.reload()
   }
 
   return (
