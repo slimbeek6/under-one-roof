@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MiniCal from '../components/MiniCal';
 import CalEvent from '../components/CalEvent';
+import EventForm from '../components/EventForm';
 
 function Calendar() {
   const [displayForm, setDisplayForm] = useState(false);
