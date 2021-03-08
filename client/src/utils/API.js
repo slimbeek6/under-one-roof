@@ -25,8 +25,8 @@ export default {
     return axios.delete("/api/chores/" + id);
   },
   // Saves a new chore
-  addChore: function(newChore) {
-    return axios.post("/api/chores/new", newChore);
+  addChore: function(data) {
+    return axios.post("/api/chores", data);
   },
   // Update a chore with the given id
   updateChore: function(id) {
@@ -42,6 +42,14 @@ export default {
   },
   deleteEvent: id => {
     return axios.delete('/api/events/' + id);
+  },
+
+  // AUTH
+  signup: (newUser) => {
+    return axios.post('/api/auth/signup', newUser);
+  },
+  signin: (user) => {
+    return axios.post('/api/auth/signin', user);
   }
 
 };

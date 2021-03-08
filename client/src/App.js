@@ -1,3 +1,4 @@
+/*
 import React, { Component } from "react";
 // import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -9,14 +10,6 @@ import Expenses from "./pages/Expenses";
 import NoMatch from "./pages/NoMatch";
 import { ExpenseProvider } from "./utils/GlobalState";
 import Nav from "./components/Nav";
-
-// class App extends Component {
-//   render() {
-//     // ...
-//   }
-// }
-
-// export default App;
 
 
 function App() {
@@ -41,8 +34,9 @@ function App() {
 }
 
 export default App;
+*/
 
-/*
+
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -53,7 +47,12 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Budget from "./pages/Budget";
+import Chores from "./pages/Chores";
+import Calendar from "./pages/Calendar";
+import Expenses from "./pages/Expenses";
 import BoardUser from "./pages/BoardUser";
+import NoMatch from "./pages/NoMatch";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -90,13 +89,42 @@ const App = () => {
               </Link>
             </li>
           )}
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/budget"} className="nav-link">
+                Budget
+              </Link>
+            </li>
+          )}
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/chores"} className="nav-link">
+                Chores
+              </Link>
+            </li>
+          )}
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/calendar"} className="nav-link">
+                Calendar
+              </Link>
+            </li>
+          )}
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/expenses"} className="nav-link">
+                Expenses
+              </Link>
+            </li>
+          )}
         </div>
 
         {currentUser ? (
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
+                {/* {currentUser.username} */}
+                Profile
               </Link>
             </li>
             <li className="nav-item">
@@ -127,10 +155,15 @@ const App = () => {
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/budget" component={Budget} />
+          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/chores" component={Chores} />
+          <Route exact path="/expenses" component={Expenses} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={BoardUser} />
-          // <Route path="/mod" component={BoardModerator} />
-          // <Route path="/admin" component={BoardAdmin} />
+          <Route component={NoMatch} />
+          {/* <Route path="/mod" component={BoardModerator} />
+          <Route path="/admin" component={BoardAdmin} /> */}
         </Switch>
       </div>
     </div>
@@ -138,5 +171,3 @@ const App = () => {
 };
 
 export default App;
-
-*/
