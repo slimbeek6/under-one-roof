@@ -6,8 +6,8 @@ import { ADD_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
 import "./style.css";
 import  ExpenseTableRow  from "../components/ExpenseTableRows";
 import { RadialChart, XAxis, XYPlot, YAxis, VerticalBarSeries, LabelSeries } from "react-vis";
-import PaymentList from "../components/PaymentList"
-
+import PaymentList from "../components/PaymentList";
+import AuthService from "../services/auth.service";
 
 
 const Budget = () => {
@@ -16,9 +16,11 @@ const Budget = () => {
     const exptypeRef = useRef();
     const paid = useRef();
     const paidBy = useRef();
+    const currentUser = AuthService.getCurrentUser();
 
-    console.log(paid);
+    console.log(currentUser);
     const [state, dispatch] = useExpenseContext();
+    
 
     const sortExpenses = (data) => {
         data.sort(function (a, b) {
@@ -129,9 +131,10 @@ const Budget = () => {
             expenseType: exptypeRef.current.value,
             paid: paid.current.checked,
             paidBy: paidBy.current.value,
-            expenseDate: Date.now()
+            expenseDate: Date.now(),
+            HomeId: currentUser.id
         }
-        // console.log(newExpense);
+        console.log(newExpense);
         API.addExpense(newExpense);
     };
 
@@ -141,8 +144,8 @@ const Budget = () => {
     const pieData = pieDataFormat(state);
     const barData = barDataFormat(state);
     const barLabels = barLabelData(barData); 
-    console.log(barData);
-    console.log(barLabels);
+    // console.log(barData);
+    // console.log(barLabels);
 
     let labelData = barLabels;
 
@@ -199,7 +202,7 @@ const Budget = () => {
                                 <br />
                                 <div>
                                     <h4>Sum of Roommate Payments:</h4>
-                                        <PaymentList data={state} />                                    
+                                        <PaymentList data={state} />
                                 </div>
                             </div>
                         </div>
