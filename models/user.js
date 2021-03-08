@@ -62,6 +62,5 @@ module.exports = function(sequelize, DataTypes) {
     //   models.User.hasMany(models.UserBudget, { onDelete: "cascade"})
     // };
 
-
     return User;
 };
