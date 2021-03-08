@@ -9,3 +9,34 @@
 th {
     width: 180 px;
 }
+
+/* TEXT */
+.blue {
+    color: #120078;
+}
+.red {
+    color: #fd3a69;
+}
+.purple {
+    color: #9d0191;
+}
+.yellow {
+    color: #fecd1a;
+}
+.white {
+    color: #fff;
+}
+
+/* BACKGROUNDS */
+.blueBG {
+    background: #120078;
+}
+.redBG {
+    background: #fd3a69;
+}
+.purpleBG {
+    background: #9d0191;
+}
+.yellowBG {
+    background: #fecd1a;
+}

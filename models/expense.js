@@ -21,7 +21,8 @@ module.exports = function(sequelize, DataTypes) {
             default: false
         },
         paidBy: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            default: "0"
         }
     });
 

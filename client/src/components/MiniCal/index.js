@@ -8,7 +8,6 @@ function MiniCal() {
   const [date, setDate] = useState(new Date())
 
   const onChange = event => {
-    console.log(event)
     setDate(new Date())
   }
 
