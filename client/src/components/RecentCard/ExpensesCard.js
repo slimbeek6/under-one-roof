@@ -11,14 +11,14 @@ function ExpensesCard(props) {
           {props.heading}
         </div>
       </div>
-      {props.list.map(listItem => {
+      {/* {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
             <DayJS element="p" className="col-3 purple" format='MM-DD'>{listItem.expenseDate}</DayJS>
             <p className="col-9">{listItem.expenseName}</p>
           </div>
         )
-      })}
+      })} */}
     </div>
   )
 }

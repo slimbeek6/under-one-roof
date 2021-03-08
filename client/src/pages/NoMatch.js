@@ -5,6 +5,7 @@ const NoMatch = () => {
         <div className="box" style={{textAlign: "center"}}>
             <h1>404 Page Not Found</h1>
             <h3>Please use one of the links in the navbar to navigate the site</h3>
+            <h3>If you are not logged in, please log in</h3>
                 <h1>
                 <span role="img" aria-label="Face With Rolling Eyes Emoji">
                     🙄
