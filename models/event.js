@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
-      eventName: {
+      title: {
           type: DataTypes.STRING,
           allowNull: false
       },
-      eventDate: {
+      date: {
         type: DataTypes.STRING,
         allowNull: false
       }
