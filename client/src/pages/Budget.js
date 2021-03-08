@@ -131,9 +131,10 @@ const Budget = () => {
             expenseType: exptypeRef.current.value,
             paid: paid.current.checked,
             paidBy: paidBy.current.value,
-            expenseDate: Date.now()
+            expenseDate: Date.now(),
+            HomeId: currentUser.id
         }
-        // console.log(newExpense);
+        console.log(newExpense);
         API.addExpense(newExpense);
     };
 

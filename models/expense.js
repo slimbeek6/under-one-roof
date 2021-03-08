@@ -30,9 +30,9 @@ module.exports = function(sequelize, DataTypes) {
     //     Expense.belongsTo(models.User);
     // };
 
-    // Expense.associate = function(models) {
-    //     Expense.belongsTo(models.Home);
-    // };
+    Expense.associate = function(models) {
+        Expense.belongsTo(models.Home);
+    };
 
     return Expense;
 };
