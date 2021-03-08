@@ -61,13 +61,13 @@ const Home = () => {
       </header>
       <main className="row">
         <div className="col-4">
-          <EventsCard list={limitedEvents} heading={'Events'} />
+          <EventsCard list={limitedEvents} heading={'Upcoming Events'} />
         </div>
         <div className="col-4">
-          <ExpensesCard list={limitedExpenses} heading={'Expenses'} />
+          <ExpensesCard list={limitedExpenses} heading={'Recent Expenses'} />
         </div>
         <div className="col-4">
-          <ChoresCard list={limitedChores} heading={'Chores'} />
+          <ChoresCard list={limitedChores} heading={'Chores Due'} />
         </div>
       </main>
     </div>

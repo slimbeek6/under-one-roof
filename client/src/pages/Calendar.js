@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MiniCal from '../components/MiniCal';
 import CalEvent from '../components/CalEvent';
 import EventForm from '../components/EventForm';

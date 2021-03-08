@@ -12,7 +12,7 @@ function EventsCard(props) {
     <ul className="col-12 list-group list-group-flush">
       {props.list.map(listItem => {
         return (
-          <li className="list-group-item">
+          <li className="list-group-item" key={listItem.id}>
             <span className="col-5 date">{listItem.eventDate.slice(5)}</span>
             <span className="col-7 name">{listItem.eventName}</span>
           </li>

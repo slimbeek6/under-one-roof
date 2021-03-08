@@ -12,7 +12,7 @@ function ChoresCard(props) {
     <ul className="col-12 list-group list-group-flush">
       {props.list.map(listItem => {
         return (
-          <li className="list-group-item">
+          <li className="list-group-item" key={listItem.id}>
             <span className="col-12 name">{listItem.choreName}</span>
           </li>
         )
