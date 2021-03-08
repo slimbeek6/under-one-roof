@@ -2,7 +2,6 @@
   "name": "redux-mini-project",
   "version": "1.0.0",
   "description": "",
-  "proxy": "https://localhost:3001",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
