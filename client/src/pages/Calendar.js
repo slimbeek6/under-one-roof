@@ -3,6 +3,16 @@ import MiniCal from '../components/MiniCal';
 import CalEvent from '../components/CalEvent';
 
 function Calendar() {
+  const [displayForm, setDisplayForm] = useState(false);
+
+  const hideForm = () => {
+    setDisplayForm(false)
+  }
+
+  const showForm = () => {
+    setDisplayForm(true)
+  }
+
   return (
     <div className="container">
       <header className="row p-3">
