@@ -6,19 +6,13 @@ import EventForm from '../components/EventForm';
 function Calendar() {
   const [displayForm, setDisplayForm] = useState(false);
 
-  const hideForm = (event) => {
-    // handleButtonClick(event)
+  const hideForm = () => {
     setDisplayForm(false)
   }
 
-  const showForm = (event) => {
-    // handleButtonClick(event)
+  const showForm = () => {
     setDisplayForm(true)
   }
-
-  // const handleButtonClick = event => {
-  //   event.preventDefault()
-  // }
 
   return (
     <div className="container">

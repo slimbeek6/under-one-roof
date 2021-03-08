@@ -24,8 +24,6 @@ function CalEvent() {
       }).catch(err => console.error(err))
   }
 
-  console.log(events)
-
   return (
     events.map(event => (
       <>

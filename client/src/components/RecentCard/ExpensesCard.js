@@ -3,7 +3,6 @@ import './index.css';
 import DayJS from 'react-dayjs';
 
 function ExpensesCard(props) {
-  console.log(props.list)
 
   return (
   <div className="row card">

@@ -2,23 +2,22 @@ import React from 'react';
 import './index.css';
 
 function EventsCard(props) {
-  console.log(props.list)
 
   return (
-  <div className="row card">
-    <div className="col-12 card-header text-center">
+  <div className="row">
+    <div className="col-12 text-center border">
       {props.heading}
     </div>
-    <ul className="col-12 list-group list-group-flush">
+    <div className="px-1 border">
       {props.list.map(listItem => {
         return (
-          <li className="list-group-item" key={listItem.id}>
-            <span className="col-5 date">{listItem.eventDate.slice(5)}</span>
-            <span className="col-7 name">{listItem.eventName}</span>
-          </li>
+          <div className="row listItem border" key={listItem.id}>
+            <p className="col-4 date">{listItem.eventDate.slice(5)}</p>
+            <p className="col-8 name">{listItem.eventName}</p>
+          </div>
         )
       })}
-    </ul>
+    </div>
   </div>
   )
 }

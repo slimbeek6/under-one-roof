@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css';
 
 function ChoresCard(props) {
-  console.log(props.list)
 
   return (
   <div className="row card">
