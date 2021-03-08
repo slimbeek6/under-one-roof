@@ -16,8 +16,8 @@ function Calendar() {
   return (
     <div className="container">
       <header className="row p-3">
-        <div className="col-8 border">
-          Announcement Area
+        <div className="col-8 border d-flex align-items-center justify-content-center">
+          <h1 className="text-center display-1">Calendar</h1>
         </div>
         <div className="col-4 border">
           <MiniCal />

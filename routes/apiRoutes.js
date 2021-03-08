@@ -55,9 +55,11 @@ router
 
 // EVENTS
 router
-  .route("/api/event")
+  .route("/api/events")
   .post(eventController.create)
   .get(eventController.findAll)
+router 
+  .route("/api/events/:id")
   .delete(eventController.delete)
 
 
