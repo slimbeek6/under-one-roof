@@ -1,46 +1,41 @@
-// import React, { Component } from "react";
-// // import React from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// // import Home from "./pages/Home";
-// import Budget from "./pages/Budget";
-// import Chores from "./pages/Chores";
-// import Calendar from "./pages/Calendar";
-// import Expenses from "./pages/Expenses";
-// import NoMatch from "./pages/NoMatch";
-// import { ExpenseProvider } from "./utils/GlobalState";
-// import Nav from "./components/Nav";
-
-// class App extends Component {
-//   render() {
-//     // ...
-//   }
-// }
-
-// export default App;
+/*
+import React, { Component } from "react";
+// import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Budget from "./pages/Budget";
+import Chores from "./pages/Chores";
+import Calendar from "./pages/Calendar";
+import Expenses from "./pages/Expenses";
+import NoMatch from "./pages/NoMatch";
+import { ExpenseProvider } from "./utils/GlobalState";
+import Nav from "./components/Nav";
 
 
-// // function App() {
-// //   return (
-// //     <Router>
-// //       <div className="App">
-// //         <ExpenseProvider>
-// //           <Nav />
-// //           <Switch>
-// //             {/* <Route exact path="/" component={Home} />
-// //             <Route exact path="/home" component={Home} /> */}
-// //             <Route exact path="/budget" component={Budget} />
-// //             <Route exact path="/calendar" component={Calendar} />
-// //             <Route exact path="/chores" component={Chores} />
-// //             <Route exact path="/expenses" component={Expenses} />
-// //             <Route component={NoMatch} />
-// //           </Switch>
-// //         </ExpenseProvider>
-// //       </div>
-// //     </Router>
-// //   );
-// // }
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <ExpenseProvider>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/budget" component={Budget} />
+            <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/chores" component={Chores} />
+            <Route exact path="/expenses" component={Expenses} />
+            <Route component={NoMatch} />
+          </Switch>
+        </ExpenseProvider>
+      </div>
+    </Router>
+  );
+}
 
-// // export default App;
+export default App;
+*/
+
 
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link } from "react-router-dom";
@@ -86,7 +81,7 @@ const App = () => {
               Home
             </Link>
           </li>
-{/* These are the navbar items protected after auth */}
+// These are the navbar items protected after auth
           {currentUser && (
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">

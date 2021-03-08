@@ -17,14 +17,14 @@ const eventController = require("../controllers/eventController");
 router
   .route("/api/expenses")
   .post(expenseController.add)
-  .get(expenseController.findAll);
+  .get(expenseController.findAll)
 
 
 // Chores
 router
   .route("/api/chores")
   .post(choreController.add)
-  .get(choreController.findAll);
+  .get(choreController.findAll)
 
 // Authentication
 router.use(function(req, res, next) {
@@ -50,10 +50,13 @@ router
 
 // EVENTS
 router
-  .route("/api/event")
+  .route("/api/events/")
   .post(eventController.create)
   .get(eventController.findAll)
-  .delete(eventController.delete)
+router
+  .route("/api/events/:id")
+  .delete(eventController.delete);
+  
 
 
 // send react app

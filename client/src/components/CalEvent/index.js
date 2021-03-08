@@ -9,21 +9,40 @@ function CalEvent() {
   useEffect(() => {
     API.getEvents()
       .then(results => {
-        console.log(results.data);
-        let allEvents = results.data
-        setEvents(allEvents);
+        setEvents(results.data);
       }).catch(err => console.error(err))
   }, [])
 
+  const handleDeleteBtn = event => {
+    let id = event.target.getAttribute('data-id');
+    console.log(id);
+    API.deleteEvent(id)
+      .then(res => {
+        console.log("Event deleted!")
+        setEvents(events)
+        document.location.reload()
+      }).catch(err => console.error(err))
+  }
+
+  console.log(events)
+
   return (
     events.map(event => (
-      <div className="row border p-3 m-0">
-        <h3 className="col-10"><DayJS element='span' format='MMM D'>{event.date}</DayJS>: {event.title}</h3>
-        <div className="col-2">
-          <button className="btn edit">Edit</button>
-          <button className="btn delete ml-3">Delete</button>
+      <>
+        <div className="row m-0 mt-4" key={event.id}>
+          <div className="col-2">
+            <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
+          </div>
+          <div className="col-9">
+            <h3 className="m-0">{event.eventName}</h3>
+          </div>
+          <div className="col-1 ml-auto">
+            {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
+            <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
+          </div>
         </div>
-      </div>
+        <hr/>
+      </>
     ))
   )
 }
