@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import BoardUser from "./pages/BoardUser";
+import Landing from "./pages/Landing";
 
 
 function App () {
@@ -37,11 +38,17 @@ function App () {
           UnderOneRoof
         </Link>
         <div className="navbar-nav mr-auto">
-          <li className="nav-item">
+          {currentUser ? (<li className="nav-item">
+            <Link to={"/landing"} className="nav-link">
+              Home
+            </Link>
+          </li>) : (
+            <li className="nav-item">
             <Link to={"/home"} className="nav-link">
               Home
             </Link>
           </li>
+          )}
               {/* These are the navbar items protected after auth */}
           {currentUser && (
             <li className="nav-item">
@@ -120,6 +127,7 @@ function App () {
               <Route exact path="/register" component={Register} />
               {currentUser && (
                 <div>
+                  <Route exact path="/landing" component={Landing} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/budget" component={Budget} />
                   <Route exact path="/expenses" component={Expenses} />
