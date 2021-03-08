@@ -3,29 +3,29 @@ module.exports = function(sequelize, DataTypes) {
 
         choreName: {
             type: DataTypes.STRING,
-            // allowNull: false,
-            // validate: {len: [1]}
+            allowNull: false,
+            validate: {len: [1]}
         },
         choreDescription: {
             type: DataTypes.STRING,
-            // allowNull: false,
-            // validate: {len: [1]}
+            allowNull: false,
+            validate: {len: [1]}
         },
         choreFrequency: {
             type: DataTypes.INTEGER,
-            // allowNull: false,
-            // validate: {
-            //     min: 1,
-            //     max: 365
-            //}
+            allowNull: false,
+            validate: {
+                min: 1,
+                max: 365
+            }
         }
     });
 
-    // Chore.associate = function(models) {
-    //     Chore.hasMany(models.User, {
-    //         onDelete: "cascade"
-    //     });
-    // };
+    Chore.associate = function(models) {
+        Chore.hasMany(models.User, {
+            onDelete: "cascade"
+        });
+    };
 
     return Chore;
 };

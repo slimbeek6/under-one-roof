@@ -12,9 +12,12 @@ export default {
   // Saves a new expense to the database
   addExpense: function(expenseData) {
     console.log(expenseData);
-    return axios.post("/api/expenses/new", expenseData);
+    return axios.post("/api/expenses", expenseData);
   },
-
+  editExpense: function(id, expenseData) {
+    console.log(expenseData);
+    return axios.put("/api/expenses/" + id, expenseData);
+  },
 
   // Gets all chores
   getChores: function() {
@@ -25,8 +28,8 @@ export default {
     return axios.delete("/api/chores/" + id);
   },
   // Saves a new chore
-  addChore: function(data) {
-    return axios.post("/api/chores", data);
+  addChore: function(newChore) {
+    return axios.post("/api/chores/new", newChore);
   },
   // Update a chore with the given id
   updateChore: function(id) {
@@ -42,14 +45,6 @@ export default {
   },
   deleteEvent: id => {
     return axios.delete('/api/events/' + id);
-  },
-
-  // AUTH
-  signup: (newUser) => {
-    return axios.post('/api/auth/signup', newUser);
-  },
-  signin: (user) => {
-    return axios.post('/api/auth/signin', user);
   }
 
 };

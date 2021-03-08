@@ -1,50 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import DayJS from 'react-dayjs';
-import API from "../../utils/API";
+import React from 'react';
 import './index.css';
 
 function CalEvent() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    API.getEvents()
-      .then(results => {
-        setEvents(results.data);
-      }).catch(err => console.error(err))
-  }, [])
-
-  const handleDeleteBtn = event => {
-    let id = event.target.getAttribute('data-id');
-    console.log(id);
-    API.deleteEvent(id)
-      .then(res => {
-        console.log("Event deleted!")
-        setEvents(events)
-        document.location.reload()
-      }).catch(err => console.error(err))
-  }
-
-  console.log(events)
 
   return (
-    events.map(event => (
-      <>
-        <div className="row m-0 mt-4" key={event.id}>
-          <div className="col-2">
-            <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
-          </div>
-          <div className="col-9">
-            <h3 className="m-0">{event.eventName}</h3>
-          </div>
-          <div className="col-1 ml-auto">
-            {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
-            <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
-          </div>
-        </div>
-        <hr/>
-      </>
-    ))
-  )
+    <div className="row border p-3 m-0">
+      <h3 className="col-11">Event Title</h3>
+      <button className="col-1 btn btn-danger">Delete</button>
+      <p className="col-12 my-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit dolor eu tincidunt dapibus. Praesent facilisis in mauris sed pulvinar. Sed ut mattis lacus. Donec et gravida enim. Sed non feugiat nulla. Nulla ut nunc pharetra, blandit lacus in, scelerisque nibh. Vestibulum in massa quam. Nullam ultricies sed purus et ornare.
+      </p>
+      <p className="col-11">Posted by Ryan</p>
+      <button className="col-1 btn btn-warning" href="#">Edit</button>
+    </div>
+  );
 }
 
 export default CalEvent;
