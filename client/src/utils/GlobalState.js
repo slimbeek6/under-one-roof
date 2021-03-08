@@ -12,7 +12,7 @@ const ExpenseContext = createContext({
     expenseDate: Date.now(),
     expenseType: "",
     paid: false,
-    paidBy: 0
+    paidBy: "0"
 });
 
 const {Provider} = ExpenseContext;
