@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DayJS from 'react-dayjs';
+// import DayJS from 'react-dayjs';
 import API from "../../utils/API";
 import './index.css';
 
@@ -29,7 +29,7 @@ function CalEvent() {
       <>
         <div className="row m-0 mt-4" key={event.id}>
           <div className="col-2">
-            <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
+            {/* <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3> */}
           </div>
           <div className="col-9">
             <h3 className="m-0">{event.eventName}</h3>
