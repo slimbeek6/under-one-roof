@@ -10,5 +10,15 @@ module.exports = {
         db.Expense.findAll()
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    },
+    edit: function (req, res) {
+        db.Expense.update({paid: true, paidBy: req.body.paidBy}, { where: { id: req.params.id}})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+    delete: function (req, res) {
+        db.Expense.destroy({where: {id: req.params.id}})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
 };

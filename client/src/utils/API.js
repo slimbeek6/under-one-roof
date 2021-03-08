@@ -12,9 +12,12 @@ export default {
   // Saves a new expense to the database
   addExpense: function(expenseData) {
     console.log(expenseData);
-    return axios.post("/api/expenses/new", expenseData);
+    return axios.post("/api/expenses", expenseData);
   },
-
+  editExpense: function(id, expenseData) {
+    console.log(expenseData);
+    return axios.put("/api/expenses/" + id, expenseData);
+  },
 
   // Gets all chores
   getChores: function() {

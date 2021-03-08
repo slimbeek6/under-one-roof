@@ -19,6 +19,11 @@ router
   .post(expenseController.add)
   .get(expenseController.findAll);
 
+router
+  .route("/api/expenses/:id")
+  .put(expenseController.edit)
+  .delete(expenseController.delete);
+
 
 // Chores
 router
