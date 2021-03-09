@@ -33,9 +33,14 @@ function App () {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
+        {currentUser ? (
+        <Link to={"/landing"} className="navbar-brand logo">
+        UnderOneRoof
+        </Link>) : (
         <Link to={"/"} className="navbar-brand logo">
-          UnderOneRoof
+        UnderOneRoof
         </Link>
+        )}
         <div className="navbar-nav mr-auto">
           {currentUser ? (<li className="nav-item">
             <Link to={"/landing"} className="nav-link">
