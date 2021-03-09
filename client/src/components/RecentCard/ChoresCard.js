@@ -20,7 +20,7 @@ function ChoresCard(props) {
       })}
 
       <div>
-        <Link to="/calendar"><span><button className="btn btn-success">Go to Calendar</button></span></Link>
+        <Link to="/chores"><span><button className="btn btn-success">Go to Chores</button></span></Link>
       </div>
 
     </div>
