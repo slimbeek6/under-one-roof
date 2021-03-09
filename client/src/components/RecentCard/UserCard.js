@@ -14,7 +14,7 @@ function UserCard(props) {
       {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
-            <p className="col-2 pt-3">{listItem.firstName} {listItem.lastName}</p>
+            <p className="col-2 pt-3">{listItem.userName}</p>
             <p className="col-2 pt-3">{listItem.contactPhone}</p>
             <p className="col-2 pt-3">{listItem.contactEmail}</p>
             <p className="col-2 pt-3">{listItem.emergencyName}</p>

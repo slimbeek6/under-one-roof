@@ -17,7 +17,7 @@ const Landing = () => {
 
   const currentUser = AuthService.getCurrentUser();
 
-  // console.log(currentUser);
+  
 
   const getHomeId = () => {
       const HomeId = currentUser.id;
@@ -58,11 +58,12 @@ const Landing = () => {
     return item;
   })
 
+  console.log(users);
 
   return (
     <div className="container-fluid m-0">
       <div className="jumbotron">
-        <h1>Welcome home, Ryan!</h1>
+        <h1>Welcome Home to {currentUser.username}!</h1>
       </div>
       <div className="row m-5">
         <div className="col-4">
