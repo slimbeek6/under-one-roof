@@ -3,6 +3,7 @@ import API from '../utils/API';
 import ChoresCard from '../components/RecentCard/ChoresCard';
 import EventsCard from '../components/RecentCard/EventsCard';
 import ExpensesCard from '../components/RecentCard/ExpensesCard';
+import UserCard from '../components/RecentCard/UserCard';
 import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
 
@@ -12,10 +13,11 @@ const Landing = () => {
   const [chores, setChores] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [events, setEvents] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const currentUser = AuthService.getCurrentUser();
 
-  console.log(currentUser);
+  // console.log(currentUser);
 
   const getHomeId = () => {
       const HomeId = currentUser.id;
@@ -39,6 +41,11 @@ const Landing = () => {
         // console.log(expenses)
         setExpenses(expenses.data)
       }).catch(err => console.error(err))
+    API.getUsers(HomeId)
+    .then(users => {
+      // console.log(expenses)
+      setUsers(users.data)
+    }).catch(err => console.error(err))
   }, [])
 
   const limitedEvents = events.slice(0, 5).map(item => {
@@ -50,6 +57,7 @@ const Landing = () => {
   const limitedChores = chores.slice(0, 5).map(item => {
     return item;
   })
+
 
   return (
     <div className="container-fluid m-0">
@@ -65,6 +73,11 @@ const Landing = () => {
         </div>
         <div className="col-4">
           <ExpensesCard list={limitedExpenses} heading="Recent Expenses" />
+        </div>
+      </div>
+      <div className="row m-5">
+      <div className="col-12">
+          <UserCard list={users} heading="User Contact List" />
         </div>
       </div>
     </div>

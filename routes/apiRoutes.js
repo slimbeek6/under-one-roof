@@ -9,6 +9,7 @@ const choreController = require("../controllers/choreController");
 const { verifySignUp } = require("../config/middleware");
 const authController = require("../controllers/auth.controller");
 const eventController = require("../controllers/eventController");
+const userController = require ("../controllers/userController");
 
 // API Routes
 // =============================================================
@@ -66,6 +67,13 @@ router
   .route("/api/events/:id")
   .delete(eventController.delete)
   .get(eventController.findAll);
+
+// USERS
+router
+  .route("/api/users/:id")
+  .get(userController.findAll);
+
+
 
 // send react app
 // we need to send the client the compiled index.html file
