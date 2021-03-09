@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 function UserCard(props) {
 
   return (
-    <div>
-      <div className="row border">
-        <div className="col-12 listHeader text-center border">
+    <div className="mx-4">
+      <div className="row blueBG p-2">
+        <h2 className="col-12 white text-center">
           {props.heading}
-        </div>
+        </h2>
       </div>
       {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
-            <p className="col-2">{listItem.firstName} {listItem.lastName}</p>
-            <p className="col-2">{listItem.contactPhone}</p>
-            <p className="col-2">{listItem.contactEmail}</p>
-            <p className="col-2">{listItem.emergencyName}</p>
-            <p className="col-2">{listItem.emergencyPhone}</p>
+            <p className="col-2 pt-3">{listItem.firstName} {listItem.lastName}</p>
+            <p className="col-2 pt-3">{listItem.contactPhone}</p>
+            <p className="col-2 pt-3">{listItem.contactEmail}</p>
+            <p className="col-2 pt-3">{listItem.emergencyName}</p>
+            <p className="col-2 pt-3">{listItem.emergencyPhone}</p>
           </div>
         )
       })}
