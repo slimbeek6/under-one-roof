@@ -9,6 +9,7 @@ const choreController = require("../controllers/choreController");
 const { verifySignUp } = require("../config/middleware");
 const authController = require("../controllers/auth.controller");
 const eventController = require("../controllers/eventController");
+const userController = require("../controllers/userController");
 
 // API Routes
 // =============================================================
@@ -67,6 +68,18 @@ router
   .delete(eventController.delete)
   .get(eventController.findAll);
 
+
+// USERS
+router
+  .route("/api/user")
+  .post(userController.create)
+  .get(userController.findAll)
+router
+  .route("/api/user/:id")
+  // .get(userController.findOne)
+  .delete(userController.delete)
+
+
 // send react app
 // we need to send the client the compiled index.html file
 if (process.env.NODE_ENV === "production") {
@@ -74,5 +87,7 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile(path.join(__dirname, "../client/public/index.html"))
     })
 }
+
+
   
 module.exports = router;
