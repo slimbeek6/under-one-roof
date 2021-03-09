@@ -9,7 +9,7 @@ const choreController = require("../controllers/choreController");
 const { verifySignUp } = require("../config/middleware");
 const authController = require("../controllers/auth.controller");
 const eventController = require("../controllers/eventController");
-const userController = require ("../controllers/userController");
+const userController = require("../controllers/userController");
 
 // API Routes
 // =============================================================
@@ -72,11 +72,17 @@ router
   .delete(eventController.delete)
   .get(eventController.findAll);
 
+
 // USERS
 router
-  .route("/api/users/:id")
-  .get(userController.findAll);
-
+  .route("/api/user")
+  .post(userController.create)
+  
+router
+  .route("/api/user/:id")
+  .get(userController.findAll)
+  // .get(userController.findOne)
+  .delete(userController.delete)
 
 
 // send react app
@@ -86,5 +92,7 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile(path.join(__dirname, "../client/public/index.html"))
     })
 }
+
+
   
 module.exports = router;

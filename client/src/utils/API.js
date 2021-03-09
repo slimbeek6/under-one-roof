@@ -37,7 +37,7 @@ export default {
   },
 
   // EVENTS
-  getEvents: (id) => {
+  getEvents: id => {
     return axios.get('/api/events/' + id);
   },
   saveEvent: data => {
@@ -48,8 +48,14 @@ export default {
   },
 
   // USERS
-  getUsers: (id) => {
-    return axios.get("/api/users/"+id);
+  getUsers: id => {
+    return axios.get('/api/users/' + id);
   },
+  saveUser: data => {
+    return axios.post('/api/users', data);
+  },
+  deleteUser: id => {
+    return axios.delete('/api/users/' + id);
+  }
 
 };
