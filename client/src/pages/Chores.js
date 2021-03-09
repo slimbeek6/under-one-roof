@@ -10,7 +10,7 @@ import ChoreTableRow from "../components/ChoreTableRow";
 
 const Chores = () => {
     const [chores, setChores] = useState([]);
-
+    const [users, setUsers] = useState([]);
     const choreNameRef = useRef();
     const choreDescRef = useRef();
     const choreFreqRef = useRef();
@@ -38,14 +38,24 @@ const Chores = () => {
     
     console.log(chores);
 
-    
+    useEffect(() => {
+        API.getUsers(HomeId)
+        .then(users => {
+          // console.log(expenses)
+          setUsers(users.data)
+        }).catch(err => console.error(err))
+    }, [])
 
     const addChore = (event) => {
         event.preventDefault();
+        let assigneeId = users.length;
+        let assignee = Math.floor(Math.random() * assigneeId);
+        console.log()
         let newChore = {
             choreName: choreNameRef.current.value,
             choreDescription: choreDescRef.current.value,
             choreFrequency: choreFreqRef.current.value,
+            assignee: assignee,
             HomeId: HomeId,
         }
         // console.log(newChore);
@@ -70,7 +80,7 @@ const Chores = () => {
                             <th>Currently Assigned To</th>
                         </tr>
                         {chores.map(chore => (
-                            <ChoreTableRow choreName={chore.choreName} choreDescription={chore.choreDescription} choreFrequency={chore.choreFrequency} assignee={"None"} />
+                            <ChoreTableRow choreName={chore.choreName} choreDescription={chore.choreDescription} choreFrequency={chore.choreFrequency} assignee={chore.assignee} />
                         ))}
                     </table>
                 </div>
