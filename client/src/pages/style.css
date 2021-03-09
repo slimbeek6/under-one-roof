@@ -7,16 +7,19 @@ body {
     color: #120078;
 }
 .red {
-    color: #fd3a69;
+    color: #d92027;
 }
 .purple {
     color: #9d0191;
 }
 .yellow {
-    color: #fecd1a;
+    color: #ffcd3c;
 }
 .white {
     color: #fff;
+}
+.orange {
+    color: #ff9234;
 }
 
 /* BACKGROUNDS */
@@ -24,18 +27,21 @@ body {
     background: #120078;
 }
 .redBG {
-    background: #fd3a69;
+    background: #d92027;
 }
 .purpleBG {
     background: #9d0191;
 }
 .yellowBG {
-    background: #fecd1a;
+    background: #ffcd3c;
+}
+.orangeBG {
+    background: #ff9234;
 }
 
 /* FONTS */
 .logo {
-    font-family: 'Fascinate', cursive;
+    font-family: 'Rammetto One', cursive;
 }
 .bold {
     font-weight: 700;
