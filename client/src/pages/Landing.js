@@ -51,33 +51,6 @@ const Landing = () => {
     return item;
   })
 
-  useEffect(() => {
-    API.getEvents()
-      .then(events => {
-        setEvents(events.data)
-      }).catch(err => console.error(err))
-    API.getChores()
-      .then(chores => {
-        // console.log(chores)
-        setChores(chores.data)
-      }).catch(err => console.error(err))
-    API.getExpenses()
-      .then(expenses => {
-        // console.log(expenses)
-        setExpenses(expenses.data)
-      }).catch(err => console.error(err))
-  }, [])
-
-  const limitedEvents = events.slice(0, 5).map(item => {
-    return item;
-  })
-  const limitedExpenses = expenses.slice(0, 5).map(item => {
-    return item;
-  })
-  const limitedChores = chores.slice(0, 5).map(item => {
-    return item;
-  })
-
   return (
     <div className="container-fluid m-0">
       <div className="jumbotron">
