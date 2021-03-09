@@ -163,6 +163,9 @@ const Register = (props) => {
               >
                 {message}
               </div>
+              <div className="d-flex justify-content-center">
+                <a href="/login" className="button">Login</a>
+              </div>
             </div>
           )}
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
