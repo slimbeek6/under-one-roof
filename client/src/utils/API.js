@@ -45,6 +45,11 @@ export default {
   },
   deleteEvent: id => {
     return axios.delete('/api/events/' + id);
-  }
+  },
+
+  // USERS
+  getUsers: (id) => {
+    return axios.get("/api/users/"+id);
+  },
 
 };
