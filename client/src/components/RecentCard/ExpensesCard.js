@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 function ExpensesCard(props) {
 
   return (
-    <div>
-      <div className="row border">
-        <div className="col-12 listHeader text-center border">
+    <div className="mx-4">
+      <div className="row blueBG p-2">
+        <h2 className="col-12 white text-center">
           {props.heading}
-        </div>
+        </h2>
       </div>
       {props.list.map(listItem => {
         return (

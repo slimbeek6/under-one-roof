@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Moment from "moment";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './index.css';

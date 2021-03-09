@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import API from '../../utils/API';
-// import './index.css';
 import AuthService from "../../services/auth.service";
 
 
@@ -30,7 +29,7 @@ function EventForm(props) {
   const handleBtnClick = async () => {
     await saveEvent();
     props.hideForm();
-    // document.location.reload()
+    document.location.reload()
   }
 
   return (
