@@ -162,6 +162,33 @@ const Budget = () => {
 
     let labelData = barLabels;
 
+    const totalOwedFormat = (data) => {
+        let paid = 0;
+        let owed = 0;
+        
+        for (var i =0; i< data.totalOwed.length; i++) {
+            owed += parseInt(data.totalOwed[i].y);
+        }
+
+        for (var j =0; j< data.totalPaid.length; j++) {
+            paid += parseInt(data.totalPaid[j].y);
+        }
+
+        return owed;
+    }
+    
+    const totalPaidFormat = (data) => {
+        let paid = 0;
+        
+        for (var j =0; j< data.totalPaid.length; j++) {
+            paid += parseInt(data.totalPaid[j].y);
+        }
+
+        return paid;
+    }
+
+    const totalOwed = totalOwedFormat(barData);
+    const totalPaid = totalPaidFormat(barData);
 
     return (
             <div className="container-fluid">
@@ -174,22 +201,19 @@ const Budget = () => {
                     <div className="card col-md-5">
                         <h2>Total Budget</h2>
                         <div className="row justify-content-center my-4">
-                            <div className="col-8 chart">
+                            <div className="col-7 chart">
                                 <RadialChart
                                 data={pieData}
-                                showLabels={true}
-                                labelsRadiusMultiplier={1.4}
                                 radius={125}
-                                labelsStyle={{backgroundColor: "#ffffff" }}
                                 width={300}
                                 height={300} />
                             </div>
-                            <div className="col-4">
+                            <div className="col-5">
                                 <h4>Breakdown of Expenses:</h4>
                                 <div className="card">
-                                    <h6>Total Rent:   <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total Utilities:   <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
-                                    <h6>Total Other Expenses:   <span><img src="/assets/Other.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total Rent: ${labelData[0].y}  <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total Utilities: ${labelData[1].y}  <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                                    <h6>Total Other Expenses: ${labelData[2].y}  <span><img src="/assets/Other.png" alt="rent slice color"></img></span></h6>
                                 </div>
                             </div>
                         </div>
@@ -203,14 +227,13 @@ const Budget = () => {
                                 <YAxis />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalOwed} />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalPaid} />
-                                <LabelSeries data={labelData} getLabel={d => d.x} />
                             </XYPlot>
                             </div>
                             <div className="col-md-4">
                                 <h4>Breakdown of Payments:</h4>
                                 <div className="card">
-                                    <h6>Paid:   <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total:   <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                                    <h6>Paid: ${totalPaid}  <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total: ${totalOwed} <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
                                 </div>
                                 <br />
                                 <div>

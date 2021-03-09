@@ -14,7 +14,8 @@ function ChoresCard(props) {
       {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
-            <p className="col-12 pt-3">{listItem.choreName}</p>
+            <p className="col-6 pt-3">{listItem.choreName}</p>
+            <p className="col-6 pt-3">{listItem.assignee}</p>
           </div>
         )
       })}
