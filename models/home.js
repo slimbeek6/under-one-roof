@@ -34,9 +34,29 @@ module.exports = function(sequelize, DataTypes) {
     //     Home.password = bcrypt.hashSync(Home.password, bcrypt.genSaltSync(10), null);
     // });
 
+    // Home.associate = function(models) {
+    //     Home.hasMany(models.User, {
+    //         onDelete: "cascade"
+    //     });
+    // };
+
     Home.associate = function(models) {
-        Home.hasMany(models.User, {
-            onDelete: "cascade"
+        Home.hasMany(models.Chore, {
+            onDelete: "cascade",
+            foreignKey: {
+                name: "HomeId",
+                allowNull: false
+            }
+        });
+    };
+
+    Home.associate = function(models) {
+        Home.hasMany(models.Event, {
+            onDelete: "cascade",
+            foreignKey: {
+                name: "HomeId",
+                allowNull: false
+            }
         });
     };
 

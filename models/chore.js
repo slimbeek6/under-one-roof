@@ -21,11 +21,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    // Chore.associate = function(models) {
-    //     Chore.hasMany(models.User, {
-    //         onDelete: "cascade"
-    //     });
-    // };
+    Chore.associate = function(models) {
+        Chore.belongsTo(models.Home);
+    };
 
     return Chore;
 };

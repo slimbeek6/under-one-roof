@@ -10,6 +10,7 @@ import PaymentList from "../components/PaymentList";
 import AuthService from "../services/auth.service";
 
 
+
 const Budget = () => {
     const expnameRef = useRef();
     const expamtRef = useRef();
@@ -17,8 +18,8 @@ const Budget = () => {
     const paid = useRef();
     const paidBy = useRef();
     const currentUser = AuthService.getCurrentUser();
-
-    console.log(currentUser);
+    
+    
     const [state, dispatch] = useExpenseContext();
     
 
@@ -28,8 +29,20 @@ const Budget = () => {
         });
     }
     
-    const getExpenses = () => {
-        API.getExpenses()
+    const getHomeId = () => {
+        const HomeId = currentUser.id;
+        return HomeId;
+    }
+
+    let HomeId = getHomeId();
+    // console.log(HomeId);
+
+
+    const getExpenses = (data) => {
+        let id = data;
+        console.log(id);
+
+        API.getExpenses(id)
         .then(results => {
             sortExpenses(results.data)
             dispatch({
@@ -43,7 +56,7 @@ const Budget = () => {
     }
 
     useEffect (() => {
-        getExpenses();
+        getExpenses(HomeId);
     }, []);
 
     
@@ -134,12 +147,12 @@ const Budget = () => {
             expenseDate: Date.now(),
             HomeId: currentUser.id
         }
-        console.log(newExpense);
+        // console.log(newExpense);
         API.addExpense(newExpense);
     };
 
     
-    console.log(state);
+    // console.log(state);
     
     const pieData = pieDataFormat(state);
     const barData = barDataFormat(state);
@@ -185,7 +198,7 @@ const Budget = () => {
                         <h2>Roommate Budget and Payments</h2>
                         <div className="row">
                             <div className="col-md-8">
-                            <XYPlot xType="ordinal" height={400} width={500} xDistance={100}>
+                            <XYPlot xType="ordinal" height={400} width={350} xDistance={100}>
                                 <XAxis />
                                 <YAxis />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalOwed} />

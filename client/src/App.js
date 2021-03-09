@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import BoardUser from "./pages/BoardUser";
 import Landing from "./pages/Landing";
 
 
@@ -127,6 +126,8 @@ function App () {
               <Route exact path={["/", "/home"]} component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+              
+              {/* Logged in routes */}
               {currentUser && (
                 <div>
                   <Route exact path="/landing" component={Landing} />
@@ -135,15 +136,12 @@ function App () {
                   <Route exact path="/expenses" component={Expenses} />
                   <Route exact path="/chores" component={Chores} />
                   <Route exact path="/calendar" component={Calendar} />
-                  <Route path="/user" component={BoardUser} />
                 </div>
               )}
 
-
-              
-              
               {/* <Route path="/mod" component={BoardModerator} />
               <Route path="/admin" component={BoardAdmin} /> */}
+              
               <Route component={NoMatch} />
             </Switch>
           </ExpenseProvider>
