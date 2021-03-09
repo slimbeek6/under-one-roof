@@ -67,9 +67,10 @@ const Login = (props) => {
 
   return (
     <div className="col-md-12">
-      <div className="card card-container">
+      <div className="card card-container mx-auto my-5">
         <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          src="/assets/img/Brand/UnderOneRoof-96.png"
+          // src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
           className="profile-img-card"
         />

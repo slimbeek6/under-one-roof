@@ -5,16 +5,16 @@ import {Link} from "react-router-dom";
 function ChoresCard(props) {
 
   return (
-    <div>
-      <div className="row border">
-        <div className="col-12 listHeader text-center border">
+    <div className="mx-4">
+      <div className="row blueBG p-2">
+        <h2 className="col-12 white text-center">
           {props.heading}
-        </div>
+        </h2>
       </div>
       {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
-            <p className="col-9">{listItem.choreName}</p>
+            <p className="col-12 pt-3">{listItem.choreName}</p>
           </div>
         )
       })}
@@ -24,7 +24,6 @@ function ChoresCard(props) {
       </div>
 
     </div>
-  
   )
 }
 
