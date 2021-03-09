@@ -60,12 +60,12 @@ router
 // EVENTS
 router
   .route("/api/events")
-  .post(eventController.create)
-  .get(eventController.findAll)
+  .post(eventController.create);
+  
 router 
   .route("/api/events/:id")
   .delete(eventController.delete)
-
+  .get(eventController.findAll);
 
 // send react app
 // we need to send the client the compiled index.html file

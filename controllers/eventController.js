@@ -2,7 +2,7 @@ const db = require('../models');
 
 module.exports = {
   findAll: (req, res) => {
-    db.Event.findAll({})
+    db.Event.findAll({ where: {HomeId: req.params.id}})
       .then(foundEvents => res.json(foundEvents))
       .catch(err => res.status(422).json(err));
   },
