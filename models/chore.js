@@ -18,6 +18,11 @@ module.exports = function(sequelize, DataTypes) {
                 min: 1,
                 max: 365
             }
+        },
+        assignee: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            default: "None"
         }
     });
 

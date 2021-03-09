@@ -30,11 +30,15 @@ router
 // Chores
 router
   .route("/api/chores")
-  .get(choreController.findAll);
-
-router
-  .route("/api/chores/new/")
+  .get(choreController.findAll)
   .post(choreController.add);
+  
+router
+  .route("/api/chores/:id")
+  .delete(choreController.delete);
+
+
+  
 
 // Authentication
 router.use(function(req, res, next) {
@@ -73,9 +77,10 @@ router
 router
   .route("/api/user")
   .post(userController.create)
-  .get(userController.findAll)
+  
 router
   .route("/api/user/:id")
+  .get(userController.findAll)
   // .get(userController.findOne)
   .delete(userController.delete)
 

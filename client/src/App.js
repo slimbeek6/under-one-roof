@@ -90,8 +90,7 @@ function App () {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
-                {/* {currentUser.username} */}
-                Profile
+                {currentUser.username}
               </Link>
             </li>
             <li className="nav-item">
@@ -135,12 +134,11 @@ function App () {
                   <Route exact path="/chores" component={Chores} />
                   <Route exact path="/calendar" component={Calendar} />
                 </div>
+              // ) : (
+              //   <div>
+              //     <Route component={NoMatch} />
+              //   </div>
               )}
-
-              {/* <Route path="/mod" component={BoardModerator} />
-              <Route path="/admin" component={BoardAdmin} /> */}
-              
-              <Route component={NoMatch} />
             </Switch>
           </ExpenseProvider>
         </div>

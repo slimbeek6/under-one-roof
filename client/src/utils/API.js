@@ -29,7 +29,7 @@ export default {
   },
   // Saves a new chore
   addChore: function(newChore) {
-    return axios.post("/api/chores/new", newChore);
+    return axios.post("/api/chores", newChore);
   },
   // Update a chore with the given id
   updateChore: function(id) {
@@ -48,8 +48,8 @@ export default {
   },
 
   // USERS
-  getUsers: () => {
-    return axios.get('/api/users');
+  getUsers: id => {
+    return axios.get('/api/users/' + id);
   },
   saveUser: data => {
     return axios.post('/api/users', data);

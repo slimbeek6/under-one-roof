@@ -21,7 +21,7 @@ function EventsCard(props) {
       })}
 
       <div>
-        <Link to="/chores"><span><button className="btn btn-success">Go to Chores</button></span></Link>
+        <Link to="/calendar"><span><button className="btn btn-success">Go to Calendar</button></span></Link>
       </div>
   
     </div>
