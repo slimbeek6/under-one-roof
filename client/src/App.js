@@ -30,14 +30,25 @@ function App () {
     AuthService.logout();
   };
 
+
+
+
+
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-dark blueBG">
+        {currentUser ? (
+        <Link to={"/landing"} className="navbar-brand logo">
+        <img src="/assets/img-sans-background/v1-heart/UORHeartOnlyLOGO72.png" alt="Under One Roof Logo and Home Button"></img>
+        UnderOneRoof
+        </Link>) : (
         <Link to={"/"} className="navbar-brand logo">
-          UnderOneRoof
+        <img src="/assets/img-sans-background/v1-heart/UORHeartOnlyLOGO72.png" alt="Under One Roof Logo and Home Button"></img>
+        UnderOneRoof
         </Link>
+        )}
         <div className="navbar-nav mr-auto">
-          {currentUser ? (<li className="nav-item">
+          {/* {currentUser ? (<li className="nav-item">
             <Link to={"/landing"} className="nav-link">
               Home
             </Link>
@@ -47,18 +58,19 @@ function App () {
               Home
             </Link>
           </li>
-          )}
+          )} */}
               {/* These are the navbar items protected after auth */}
-          {currentUser && (
+          {/* {currentUser && (
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">
                 User
               </Link>
             </li>
-          )}
+          )} */}
           {currentUser && (
             <li className="nav-item">
               <Link to={"/budget"} className="nav-link">
+              <img src="/assets/img/NewBudget/UnderOneRoofNewBudgetLOGO48.png" alt="Budget Button"></img>
                 Budget
               </Link>
             </li>
@@ -66,6 +78,7 @@ function App () {
           {currentUser && (
             <li className="nav-item">
               <Link to={"/chores"} className="nav-link">
+              <img src="/assets/img/Chores/UnderOneRoofChoreLOGO48.png" alt="Chores Button"></img>
                 Chores
               </Link>
             </li>
@@ -73,6 +86,7 @@ function App () {
           {currentUser && (
             <li className="nav-item">
               <Link to={"/calendar"} className="nav-link">
+              <img src="/assets/img/Calendar/UnderOneRoofCal-48.png" alt="Calendar Button"></img>
                 Calendar
               </Link>
             </li>
@@ -80,6 +94,7 @@ function App () {
           {currentUser && (
             <li className="nav-item">
               <Link to={"/expenses"} className="nav-link">
+              <img src="/assets/img/Expenses/UnderOneRoofExpense-48.png" alt="Expense Button"></img>
                 Expenses
               </Link>
             </li>
