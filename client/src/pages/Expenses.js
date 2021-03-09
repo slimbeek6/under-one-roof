@@ -3,19 +3,28 @@ import API from "../utils/API";
 import { useExpenseContext } from "../utils/GlobalState";
 import  ExpensesTbl  from "../components/ExpensesTbl";
 import { ADD_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
-
+import AuthService from "../services/auth.service";
 
 const Expenses = () => {
     const [state, dispatch] = useExpenseContext();
+    const currentUser = AuthService.getCurrentUser();
 
     const sortExpenses = (data) => {
         data.sort(function (a, b) {
             return b.expenseAmount - a.expenseAmount;
         });
     }
+
+    const getHomeId = () => {
+        const HomeId = currentUser.id;
+        return HomeId;
+    }
     
-    const getExpenses = () => {
-        API.getExpenses()
+    let HomeId = getHomeId();
+
+    const getExpenses = (data) => {
+        let id = data;
+        API.getExpenses(id)
         .then(results => {
             sortExpenses(results.data)
             dispatch({
@@ -28,7 +37,7 @@ const Expenses = () => {
     }
 
     useEffect (() => {
-        getExpenses();
+        getExpenses(HomeId);
     }, []);
 
 

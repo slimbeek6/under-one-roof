@@ -16,12 +16,13 @@ const eventController = require("../controllers/eventController");
 // Expenses
 router
   .route("/api/expenses")
-  .post(expenseController.add)
-  .get(expenseController.findAll);
+  .post(expenseController.add);
+  
 
 router
   .route("/api/expenses/:id")
   .put(expenseController.edit)
+  .get(expenseController.findAll)
   .delete(expenseController.delete);
 
 
