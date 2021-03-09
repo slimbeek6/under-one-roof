@@ -15,6 +15,7 @@ function ProfileCard(props) {
           </Link>
         )
       })}
+
       <div className="col-3 card mx-3 imitate-btn" onClick={props.showForm}>
         <img className="profile-img-card" src="/assets/img/green-plus.png" />
         <h2 className="text-center mt-3">Add New Roommate</h2>
