@@ -14,10 +14,7 @@ const Landing = () => {
   const [expenses, setExpenses] = useState([]);
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
-
   const currentUser = AuthService.getCurrentUser();
-
-  
 
   const getHomeId = () => {
       const HomeId = currentUser.id;
@@ -58,8 +55,6 @@ const Landing = () => {
     return item;
   })
 
-  console.log(users);
-
   return (
     <div className="container-fluid m-0">
       <div className="jumbotron">
@@ -84,4 +79,5 @@ const Landing = () => {
     </div>
   );
 };
+
 export default Landing;

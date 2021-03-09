@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import DayJS from 'react-dayjs';
 import { Link } from "react-router-dom";
 

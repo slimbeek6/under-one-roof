@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import DayJS from 'react-dayjs';
 import API from "../../utils/API";
-import './index.css';
 import AuthService from "../../services/auth.service";
 
 function CalEvent() {
   const [events, setEvents] = useState([]);
-
   const currentUser = AuthService.getCurrentUser();
 
   const getHomeId = () => {
