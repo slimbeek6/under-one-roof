@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import ProfileCard from "../components/ProfileCard";
+import ProfileForm from "../components/ProfileForm";
 import AuthService from "../services/auth.service";
 
 const style = {
@@ -10,6 +12,17 @@ const style = {
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
+  const [displayForm, setDisplayForm] = useState(false);
+
+
+
+  const hideForm = () => {
+    setDisplayForm(false)
+  }
+
+  const showForm = () => {
+    setDisplayForm(true)
+  }
 
   return (
     <div className="container">
@@ -39,28 +52,9 @@ const Profile = () => {
         {currentUser.roles &&
           currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
       </ul> */}
+
       <main className="row justify-content-center">
-        <h2 className="col-12 text-center mt-4 display-4 purple bold">Who are you?</h2>
-
-        <div className="col-3 card mx-3">
-          <img className="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-          <h2 className="text-center mt-3">Shaun</h2>
-        </div>
-
-        <div className="col-3 card mx-3">
-          <img className="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-          <h2 className="text-center mt-3">Ryan</h2>
-        </div>
-
-        <div className="col-3 card mx-3">
-          <img className="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-          <h2 className="text-center mt-3">Jordan</h2>
-        </div>
-
-        <div className="col-3 card mx-3">
-          <img className="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-          <h2 className="text-center mt-3">Add New Roommate</h2>
-        </div>
+        {displayForm ? <ProfileForm hideForm={hideForm} /> : <ProfileCard showForm={showForm} /> }
       </main>
     </div>
   );
