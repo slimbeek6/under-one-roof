@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import API from '../../utils/API';
+import AuthService from "../../services/auth.service";
 
 function ProfileForm(props) {
   const name = useRef();
@@ -9,6 +10,16 @@ function ProfileForm(props) {
   const eRelation = useRef();
   const ePhone = useRef();
 
+  const currentUser = AuthService.getCurrentUser();
+
+  const getHomeId = () => {
+      const HomeId = currentUser.id;
+      return HomeId;
+  }
+
+  let HomeId = getHomeId();
+
+
   const saveUser = user => {
     let newUser = {
       userName: name.current.value,
@@ -16,7 +27,8 @@ function ProfileForm(props) {
       contactPhone: phone.current.value,
       emergencyName: eName.current.value,
       emergencyRelationship: eRelation.current.value,
-      emergencyPhone: ePhone.current.value
+      emergencyPhone: ePhone.current.value,
+      HomeId: HomeId
     }
     console.log(newUser)
     API.saveUser(newUser).catch(err => console.error(err))
