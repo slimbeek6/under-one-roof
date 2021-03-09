@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import {Link} from "react-router-dom";
 
 function ChoresCard(props) {
 
@@ -10,13 +11,18 @@ function ChoresCard(props) {
           {props.heading}
         </div>
       </div>
-      {/* {props.list.map(listItem => {
+      {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
             <p className="col-9">{listItem.choreName}</p>
           </div>
         )
-      })} */}
+      })}
+
+      <div>
+        <Link to="/calendar"><span><button className="btn btn-success">Go to Calendar</button></span></Link>
+      </div>
+
     </div>
   
   )
