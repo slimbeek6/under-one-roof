@@ -88,3 +88,11 @@
 .calendar .day div.today {
   background-color: var(--grey);
 }
+
+.react-calendar {
+  border-radius: 10px;
+}
+
+.react-calendar__tile {
+  border-radius: 10px;
+}

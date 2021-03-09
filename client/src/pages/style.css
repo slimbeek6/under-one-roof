@@ -1,13 +1,5 @@
-.card {
-    margin: 6px 0px;
-}
-
-.container-fluid {
-    margin: 1%; 
-}
-
-th {
-    width: 180 px;
+body {
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* TEXT */
@@ -39,4 +31,12 @@ th {
 }
 .yellowBG {
     background: #fecd1a;
+}
+
+/* FONTS */
+.logo {
+    font-family: 'Fascinate', cursive;
+}
+.bold {
+    font-weight: 700;
 }

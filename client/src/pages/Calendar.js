@@ -17,10 +17,11 @@ function Calendar() {
   return (
     <div className="container">
       <header className="row p-3">
-        <div className="col-8 border d-flex align-items-center justify-content-center">
-          <h1 className="text-center display-1">Calendar</h1>
+        <div className="col-8 d-flex align-items-center justify-content-center">
+          <img src="/assets/img/Calendar/UnderOneRoofCal-96.png" />
+          <h1 className="text-center display-1 blue mx-5 bold">Calendar</h1>
         </div>
-        <div className="col-4 border">
+        <div className="col-4">
           <MiniCal />
         </div>
       </header>

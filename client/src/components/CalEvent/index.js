@@ -39,14 +39,13 @@ function CalEvent() {
       <>
         <div className="row m-0 mt-4" key={event.id}>
           <div className="col-2">
-            <h3 className="m-0"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
+            <h3 className="m-0 purple"><DayJS format='MMM D'>{event.eventDate}</DayJS></h3>
           </div>
           <div className="col-9">
             <h3 className="m-0">{event.eventName}</h3>
           </div>
           <div className="col-1 ml-auto">
-            {/* <button className="btn edit" data-id={event.id}>Edit</button> */}
-            <button className="btn delete ml-auto" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
+            <button className="btn delete ml-auto red" onClick={handleDeleteBtn} data-id={event.id}>Delete</button>
           </div>
         </div>
         <hr/>

@@ -33,7 +33,7 @@ function App () {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <Link to={"/"} className="navbar-brand">
+        <Link to={"/"} className="navbar-brand logo">
           UnderOneRoof
         </Link>
         <div className="navbar-nav mr-auto">
