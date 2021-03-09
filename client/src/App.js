@@ -136,12 +136,11 @@ function App () {
                   <Route exact path="/chores" component={Chores} />
                   <Route exact path="/calendar" component={Calendar} />
                 </div>
+              // ) : (
+              //   <div>
+              //     <Route component={NoMatch} />
+              //   </div>
               )}
-
-              {/* <Route path="/mod" component={BoardModerator} />
-              <Route path="/admin" component={BoardAdmin} /> */}
-              
-              <Route component={NoMatch} />
             </Switch>
           </ExpenseProvider>
         </div>
