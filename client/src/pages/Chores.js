@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 // import { Link } from "react-router-dom";
 import API from "../utils/API";
 // import { useChoreContext } from "../utils/GlobalState";
@@ -10,14 +10,14 @@ const Chores = () => {
     const choreDescRef = useRef();
     const choreFreqRef = useRef();
 
-    const choreList = [];
+    const [choreList, setChoreList] = useState([]);
 
     const getChores = () => {
         API.getChores()
         .then(results => {
-            choreList.push(results);
+            setChoreList(results.data);
             // console.log(choreList);
-        });
+        })
     };
 
     getChores();
@@ -54,12 +54,35 @@ const Chores = () => {
                                 <th>Chore Frequency</th>
                                 <th>Currently Assigned To</th>
                             </tr>
+                            {/* [
+                                {
+                                name:"",
+                                desc:""
+                            },
+                             {
+                                name:"",
+                                desc:""
+                            },
+                            ] */}
+
+                            {choreList.length > 0 ? choreList.map(chore => {
+                                return (
+                                    <tr>
+                                        <td>{chore.choreName}</td>
+                                        <td>{chore.choreDescription}</td>
+                                        <td>{chore.choreFrequency}</td>
+                                        <td>Foreign Key</td>
+                                    </tr>
+                                )
+                            }) :      
                             <tr>
-                                <td>Refrigerator</td>
-                                <td>Clean the refrigerator, throw out any old food and sanitize shelves</td>
-                                <td>30 days</td>
-                                <td>Ryan</td>
-                            </tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>}
+
+                        
                         </table>
                     </div>
                     <div className="row">
