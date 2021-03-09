@@ -29,7 +29,7 @@ export default {
   },
   // Saves a new chore
   addChore: function(newChore) {
-    return axios.post("/api/chores/new", newChore);
+    return axios.post("/api/chores", newChore);
   },
   // Update a chore with the given id
   updateChore: function(id) {

@@ -10,5 +10,12 @@ module.exports = {
         db.Chore.findAll()
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    },
+    delete: (req, res) => {
+        db.Chore.destroy({
+          where: { id: req.params.id }
+        }).then(deletedChore => {
+          deletedChore ? res.send(true) : res.send(false);
+        }).catch(err => res.status(422).json(err));
     }
 };

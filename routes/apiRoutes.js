@@ -31,6 +31,9 @@ router
 router
   .route("/api/chores")
   .get(choreController.findAll);
+router
+  .route("/api/chores/:id")
+  .delete(choreController.delete);
 
 router
   .route("/api/chores/new/")
