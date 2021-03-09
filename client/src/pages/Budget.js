@@ -198,7 +198,7 @@ const Budget = () => {
                         <h2>Roommate Budget and Payments</h2>
                         <div className="row">
                             <div className="col-md-8">
-                            <XYPlot xType="ordinal" height={400} width={500} xDistance={100}>
+                            <XYPlot xType="ordinal" height={400} width={350} xDistance={100}>
                                 <XAxis />
                                 <YAxis />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalOwed} />
