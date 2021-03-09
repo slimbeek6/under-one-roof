@@ -18,7 +18,7 @@ exports.signup = (req, res) => {
 
             // user role = 1
 
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: "User was registered successfully! You may login now." });
 
 
         })
