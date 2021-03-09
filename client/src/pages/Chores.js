@@ -36,21 +36,31 @@ const Chores = () => {
         getChores(HomeId);
     }, []);
     
-    console.log(chores);
+    const getAssignee = () => {
+        const assigneeMax = users.length;
+        const assigneeId = Math.floor(Math.random() * assigneeMax);
+        const uN = users["id", `${assigneeId}`];
+        console.log(uN);
+        var assignee = "None";
+        if (uN) {
+            assignee = uN["userName"];
+        }
+        return assignee;
+    }
 
     useEffect(() => {
         API.getUsers(HomeId)
         .then(users => {
           // console.log(expenses)
           setUsers(users.data)
+          
         }).catch(err => console.error(err))
     }, [])
 
+    let assignee = getAssignee();
+
     const addChore = (event) => {
         event.preventDefault();
-        let assigneeId = users.length;
-        let assignee = Math.floor(Math.random() * assigneeId);
-        console.log()
         let newChore = {
             choreName: choreNameRef.current.value,
             choreDescription: choreDescRef.current.value,
@@ -58,8 +68,9 @@ const Chores = () => {
             assignee: assignee,
             HomeId: HomeId,
         }
-        // console.log(newChore);
+        console.log(newChore);
         API.addChore(newChore);
+        window.location.reload();
     };
 
     return (
