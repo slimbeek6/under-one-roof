@@ -37,8 +37,8 @@ export default {
   },
 
   // EVENTS
-  getEvents: () => {
-    return axios.get('/api/events');
+  getEvents: (id) => {
+    return axios.get('/api/events/' + id);
   },
   saveEvent: data => {
     return axios.post('/api/events', data);
