@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProfileCard from "../components/ProfileCard";
 import ProfileForm from "../components/ProfileForm";
 import AuthService from "../services/auth.service";
+import API from "../utils/API";
 
 const style = {
   logo: {
@@ -13,8 +14,23 @@ const style = {
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
   const [displayForm, setDisplayForm] = useState(false);
+  const [users, setUsers] = useState([]);
 
+  const getHomeId = () => {
+    const HomeId = currentUser.id;
+    return HomeId;
+  }
 
+  let HomeId = getHomeId();
+
+  useEffect(() => {
+    API.getUsers(HomeId)
+      .then(results => {
+        setUsers(results.data)
+      }).catch(err => console.error(err))
+  }, [])
+
+  
 
   const hideForm = () => {
     setDisplayForm(false)
@@ -33,7 +49,7 @@ const Profile = () => {
           </div>
           <div className="col-8 pt-5">
             <h4>Welcome home!</h4>
-            <h2 className="display-3">588 Lombard St.</h2>
+            <h2 className="display-3">{currentUser.username}</h2>
           </div>
         </div>
       </header>
@@ -54,7 +70,7 @@ const Profile = () => {
       </ul> */}
 
       <main className="row justify-content-center">
-        {displayForm ? <ProfileForm hideForm={hideForm} /> : <ProfileCard showForm={showForm} /> }
+        {displayForm ? <ProfileForm hideForm={hideForm} /> : <ProfileCard showForm={showForm} users={users} /> }
       </main>
     </div>
   );

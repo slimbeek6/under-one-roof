@@ -42,8 +42,14 @@ body {
 }
 
 /* OTHER */
+.imitate-btn {
+    color: black;
+    text-decoration: none;
+}
 .imitate-btn:hover {
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 /* LINK TO LOOK LIKE BUTTON */
