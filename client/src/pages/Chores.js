@@ -16,20 +16,24 @@ const Chores = () => {
         API.getChores()
         .then(results => {
             choreList.push(results);
-            console.log(choreList);
+            // console.log(choreList);
         });
     };
 
     getChores();
 
-    const addChore = () => {
+    const addChore = (event) => {
+        event.preventDefault();
         let newChore = {
             choreName: choreNameRef.current.value,
             choreDescription: choreDescRef.current.value,
             choreFrequency: choreFreqRef.current.value
         }
         console.log(newChore);
-        API.addChore(newChore);
+        API.addChore(newChore)
+        .then(results => {
+            console.log(results);
+        });
     };
 
     return (
