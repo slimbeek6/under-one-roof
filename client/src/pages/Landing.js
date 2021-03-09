@@ -4,6 +4,8 @@ import ChoresCard from '../components/RecentCard/ChoresCard';
 import EventsCard from '../components/RecentCard/EventsCard';
 import ExpensesCard from '../components/RecentCard/ExpensesCard';
 import UserService from "../services/user.service";
+import AuthService from "../services/auth.service";
+
 
 const Landing = () => {
   const [content, setContent] = useState("");
@@ -11,21 +13,43 @@ const Landing = () => {
   const [expenses, setExpenses] = useState([]);
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    UserService.getPublicContent().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response && error.response.data) ||
-          error.message ||
-          error.toString();
+  const currentUser = AuthService.getCurrentUser();
 
-        setContent(_content);
-      }
-    );
-  }, []);
+  console.log(currentUser);
+
+  const getHomeId = () => {
+      const HomeId = currentUser.id;
+      return HomeId;
+  }
+
+  let HomeId = getHomeId();
+
+  useEffect(() => {
+    API.getEvents(HomeId)
+      .then(events => {
+        setEvents(events.data)
+      }).catch(err => console.error(err))
+    API.getChores(HomeId)
+      .then(chores => {
+        // console.log(chores)
+        setChores(chores.data)
+      }).catch(err => console.error(err))
+    API.getExpenses(HomeId)
+      .then(expenses => {
+        // console.log(expenses)
+        setExpenses(expenses.data)
+      }).catch(err => console.error(err))
+  }, [])
+
+  const limitedEvents = events.slice(0, 5).map(item => {
+    return item;
+  })
+  const limitedExpenses = expenses.slice(0, 5).map(item => {
+    return item;
+  })
+  const limitedChores = chores.slice(0, 5).map(item => {
+    return item;
+  })
 
   useEffect(() => {
     API.getEvents()
@@ -73,5 +97,4 @@ const Landing = () => {
     </div>
   );
 };
-
 export default Landing;

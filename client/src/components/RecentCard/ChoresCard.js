@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import {Link} from "react-router-dom";
 
 function ChoresCard(props) {
 
@@ -17,6 +18,11 @@ function ChoresCard(props) {
           </div>
         )
       })}
+
+      <div>
+        <Link to="/calendar"><span><button className="btn btn-success">Go to Calendar</button></span></Link>
+      </div>
+
     </div>
   )
 }

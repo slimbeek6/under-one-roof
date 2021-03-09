@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import {Link} from "react-router-dom";
 
 function EventsCard(props) {
 
@@ -18,6 +19,11 @@ function EventsCard(props) {
           </div>
         )
       })}
+
+      <div>
+        <Link to="/chores"><span><button className="btn btn-success">Go to Chores</button></span></Link>
+      </div>
+  
     </div>
   )
 }
