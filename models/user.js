@@ -45,26 +45,26 @@ module.exports = function(sequelize, DataTypes) {
     //     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     // });
 
-    User.associate = function(models) {
-        User.hasMany(models.Chore, {
-            onDelete: "cascade"
-        });
-    };
+    // User.associate = function(models) {
+    //     User.hasMany(models.Chore, {
+    //         onDelete: "cascade"
+    //     });
+    // };
 
-    User.associate = function(models) {
-      User.hasMany(models.Expense, {
-          onDelete: "cascade"
-      });
-    };
+    // User.associate = function(models) {
+    //   User.hasMany(models.Expense, {
+    //       onDelete: "cascade"
+    //   });
+    // };
 
     // User.associate = models => {
     //   models.User.hasMany(models.Budget, { onDelete: "cascade"})
     //   models.User.hasMany(models.UserBudget, { onDelete: "cascade"})
     // };
 
-    User.associate = models => {
-      models.User.hasMany(models.Event, { onDelete: "cascade" })
-    };
+    // User.associate = models => {
+    //   models.User.hasMany(models.Event, { onDelete: "cascade" })
+    // };
 
     return User;
 };

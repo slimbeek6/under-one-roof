@@ -29,8 +29,11 @@ router
 // Chores
 router
   .route("/api/chores")
-  .post(choreController.add)
   .get(choreController.findAll);
+
+router
+  .route("/api/chores/new/")
+  .post(choreController.add);
 
 // Authentication
 router.use(function(req, res, next) {

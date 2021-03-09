@@ -22,9 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Chore.associate = function(models) {
-        Chore.hasMany(models.User, {
-            onDelete: "cascade"
-        });
+        Chore.belongsTo(models.Home);
     };
 
     return Chore;
