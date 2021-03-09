@@ -78,7 +78,7 @@ const Landing = () => {
       </div>
       <div className="row m-5">
       <div className="col-12">
-          <UserCard list={users} heading="User Contact List" />
+          <UserCard list={users} heading="Roommate Contact List" />
         </div>
       </div>
     </div>
