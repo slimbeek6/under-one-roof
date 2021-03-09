@@ -187,9 +187,9 @@ const Budget = () => {
                             <div className="col-4">
                                 <h4>Breakdown of Expenses:</h4>
                                 <div className="card">
-                                    <h6>Total Rent:   <span><img src="../assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total Utilities:   <span><img src="../assets/Utilities.png" alt="utilities slice color"></img></span></h6>
-                                    <h6>Total Other Expenses:   <span><img src="../assets/Other.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total Rent:   <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total Utilities:   <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                                    <h6>Total Other Expenses:   <span><img src="/assets/Other.png" alt="rent slice color"></img></span></h6>
                                 </div>
                             </div>
                         </div>
@@ -209,8 +209,8 @@ const Budget = () => {
                             <div className="col-md-4">
                                 <h4>Breakdown of Payments:</h4>
                                 <div className="card">
-                                    <h6>Paid:   <span><img src="../assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total:   <span><img src="../assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                                    <h6>Paid:   <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6>Total:   <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
                                 </div>
                                 <br />
                                 <div>

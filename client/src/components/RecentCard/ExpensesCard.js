@@ -15,10 +15,10 @@ function ExpensesCard(props) {
       {props.list.map(listItem => {
         return (
           <div className="row listItem border px-1" key={listItem.id}>
-            <DayJS element="p" className="col-3 purple" format='MM-DD'>{listItem.expenseDate}</DayJS>
-            <p className="col-3">{listItem.expenseName}</p>
-            <p className="col-3">${listItem.expenseAmount}</p>
-            <p className="col-3">{listItem.paidBy}</p>
+            <DayJS element="p" className="col-3 purple pt-3" format='MM-DD'>{listItem.expenseDate}</DayJS>
+            <p className="col-3 pt-3">{listItem.expenseName}</p>
+            <p className="col-3 pt-3">${listItem.expenseAmount}</p>
+            <p className="col-3 pt-3">{listItem.paidBy}</p>
           </div>
         )
       })}
