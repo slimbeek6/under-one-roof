@@ -114,9 +114,10 @@ const Register = (props) => {
           {!successful && (
             <div>
               <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Home Name</label>
                 <Input
                   type="text"
+                  placeholder="Enter street address or nickname"
                   className="form-control"
                   name="username"
                   value={username}
