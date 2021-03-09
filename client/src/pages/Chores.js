@@ -1,34 +1,53 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { useChoreContext } from "../utils/GlobalState";
-// import { ADD_CHORE, UPDATE_CHORE, DELETE_CHORE, GET_CHORES } from "../utils/actions";
+import { GET_CHORES } from "../utils/actions";
 import "./style.css";
+import AuthService from "../services/auth.service";
+import ChoreTableRow from "../components/ChoreTableRow";
+
 
 const Chores = () => {
+    const [chores, setChores] = useState([]);
+
     const choreNameRef = useRef();
     const choreDescRef = useRef();
     const choreFreqRef = useRef();
+    const currentUser = AuthService.getCurrentUser();
 
-    const choreList = [];
+    const getHomeId = () => {
+        const HomeId = currentUser.id;
+        return HomeId;
+    }
 
-    const getChores = () => {
-        API.getChores()
+    let HomeId = getHomeId();
+
+    const getChores = (data) => {
+        let id = data;
+
+        API.getChores(id)
         .then(results => {
-            choreList.push(results);
-            console.log(choreList);
-        });
+            setChores(results.data);
+        }).catch(err => console.error(err))
     };
 
-    getChores();
+    useEffect(() => {
+        getChores(HomeId);
+    }, []);
+    
+    console.log(chores);
+
+    
 
     const addChore = () => {
         let newChore = {
             choreName: choreNameRef.current.value,
             choreDescription: choreDescRef.current.value,
-            choreFrequency: choreFreqRef.current.value
+            choreFrequency: choreFreqRef.current.value,
+            HomeId: HomeId,
         }
-        console.log(newChore);
+        // console.log(newChore);
         API.addChore(newChore);
     };
 
@@ -78,34 +97,30 @@ const Chores = () => {
             <div className="row">
                 <div className="card col-md-6">
                     <h2>Chore List:</h2>
-                    <div className="row">
-                        <table border="1" style={{width: "80%", textAlign: "center"}}>
-                            <tr>
-                                <th>Chore Name</th>
-                                <th>Chore Description</th>
-                                <th>Chore Frequency</th>
-                                <th>Currently Assigned To</th>
-                            </tr>
-                            <tr>
-                                <td>Refrigerator</td>
-                                <td>Clean the refrigerator, throw out any old food and sanitize shelves</td>
-                                <td>30 days</td>
-                                <td>Ryan</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div className="row">
-                        <h2>Add a New Chore:</h2>
-                        <form className="form-group" onSubmit={addChore}>
-                            <input className="form-control mb-5" required ref={choreNameRef} placeholder="Name of chore" />
-                            <input className="form-control mb-5" required ref={choreDescRef} placeholder="Brief description of chore" />
-                            <input className="form-control mb-5" required ref={choreFreqRef} placeholder="How often (in days) should the chore be done?" />
-                            <button className="btn btn-success mt-3 mb-5" type="submit">Add Chore</button>
-                        </form>
-                    </div>
+                    <table border="1" style={{width: "80%", textAlign: "center"}}>
+                        <tr>
+                            <th>Chore Name</th>
+                            <th>Chore Description</th>
+                            <th>Chore Frequency</th>
+                            <th>Currently Assigned To</th>
+                        </tr>
+                        {chores.map(chore => (
+                            <ChoreTableRow choreName={chore.choreName} choreDescription={chore.choreDescription} choreFrequency={chore.choreFrequency} assignee={"None"} />
+                        ))}
+                    </table>
+                </div>
+                <div className="card col-md-5">
+                    <h2>Add a New Chore:</h2>
+                    <form className="form-group" onSubmit={addChore}>
+                        <input className="form-control mb-5" required ref={choreNameRef} placeholder="Name of chore" />
+                        <input className="form-control mb-5" required ref={choreDescRef} placeholder="Brief description of chore" />
+                        <input className="form-control mb-5" required ref={choreFreqRef} placeholder="How often (in days) should the chore be done?" />
+                        <button className="btn btn-success mt-3 mb-5" type="submit">Add Chore</button>
+                    </form>
                 </div>
             </div>
         </div>
+        
     )
 };
 

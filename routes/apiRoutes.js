@@ -16,20 +16,24 @@ const eventController = require("../controllers/eventController");
 // Expenses
 router
   .route("/api/expenses")
-  .post(expenseController.add)
-  .get(expenseController.findAll);
+  .post(expenseController.add);
+  
 
 router
   .route("/api/expenses/:id")
   .put(expenseController.edit)
+  .get(expenseController.findAll)
   .delete(expenseController.delete);
 
 
 // Chores
 router
   .route("/api/chores")
-  .post(choreController.add)
   .get(choreController.findAll);
+
+router
+  .route("/api/chores/new/")
+  .post(choreController.add);
 
 // Authentication
 router.use(function(req, res, next) {
@@ -56,12 +60,12 @@ router
 // EVENTS
 router
   .route("/api/events")
-  .post(eventController.create)
-  .get(eventController.findAll)
+  .post(eventController.create);
+  
 router 
   .route("/api/events/:id")
   .delete(eventController.delete)
-
+  .get(eventController.findAll);
 
 // send react app
 // we need to send the client the compiled index.html file

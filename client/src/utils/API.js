@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all expenses
-  getExpenses: function() {
-    return axios.get("/api/expenses");
+  getExpenses: function(id) {
+    return axios.get("/api/expenses/" + id);
   },
   // Deletes the expense with the given id
   deleteExpense: function(id) {
@@ -37,8 +37,8 @@ export default {
   },
 
   // EVENTS
-  getEvents: () => {
-    return axios.get('/api/events');
+  getEvents: (id) => {
+    return axios.get('/api/events/' + id);
   },
   saveEvent: data => {
     return axios.post('/api/events', data);

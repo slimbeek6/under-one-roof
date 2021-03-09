@@ -1,15 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import API from '../../utils/API';
 // import './index.css';
+import AuthService from "../../services/auth.service";
+
 
 function EventForm(props) {
   const calDateRef = useRef();
   const calTitleRef = useRef();
 
+  const currentUser = AuthService.getCurrentUser();
+
+  const getHomeId = () => {
+    const HomeId = currentUser.id;
+    return HomeId;
+  }
+
+  let HomeId = getHomeId();
+
   const saveEvent = () => {
     let newEvent = {
       eventDate: calDateRef.current.value,
-      eventName: calTitleRef.current.value
+      eventName: calTitleRef.current.value,
+      HomeId: HomeId
     }
     console.log(newEvent);
     API.saveEvent(newEvent).catch(err => console.error(err))
