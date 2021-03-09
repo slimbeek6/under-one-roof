@@ -32,42 +32,6 @@ const Chores = () => {
         API.addChore(newChore);
     };
 
-    // const newChore = {
-    //     choreName: choreNameRef.current.value,
-    //     choreDescription: choreDescRef.current.value,
-    //     choreFrequency: choreFreqRef.current.value
-    // }
-
-
-    // const getChores = () => {
-    //     dispatch({ type: GET_CHORES })
-    // };
-
-    // useEffect(() => {
-    //     getChores();
-    // }, []);
-
-    // const addChore = () => {
-    //     dispatch({
-    //         type: ADD_CHORE,
-    //         chore: newChore
-    //     });
-    // };
-
-    // const removeChore = () => {
-    //     dispatch({
-    //         type: DELETE_CHORE,
-    //         _id: state.currentChore._id
-    //     });
-    // };
-
-    // const updateChore = () => {
-    //     dispatch({
-    //         type: UPDATE_CHORE,
-    //         _id: state.currentChore._id
-    //     });
-    // };
-
     return (
         <div className="container-fluid">
             <div className="row-fluid">
