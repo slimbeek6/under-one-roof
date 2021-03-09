@@ -41,6 +41,11 @@ body {
     font-weight: 700;
 }
 
+/* OTHER */
+.imitate-btn:hover {
+    cursor: pointer;
+}
+
 /* LINK TO LOOK LIKE BUTTON */
 .button {
     font: bold 30px Arial;
