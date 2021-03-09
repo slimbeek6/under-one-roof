@@ -75,11 +75,11 @@ router
 
 // USERS
 router
-  .route("/api/user")
-  .post(userController.create)
+  .route("/api/users")
+  .post(userController.add)
   
 router
-  .route("/api/user/:id")
+  .route("/api/users/:id")
   .get(userController.findAll)
   // .get(userController.findOne)
   .delete(userController.delete)
