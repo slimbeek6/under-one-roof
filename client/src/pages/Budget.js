@@ -194,7 +194,7 @@ const Budget = () => {
             <div className="container-fluid px-5">
                 <div className="row-fluid">
                     <div className="col md-12">
-                        <h1 className="logo mt-5 ml-4 red">Overall Roommate Budget Page</h1>
+                        <h1 className="logo mt-5 ml-4 text-center red">Overall Roommate Budget Page</h1>
                     </div>
                 </div>
                 <div className="row">

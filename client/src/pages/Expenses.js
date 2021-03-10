@@ -48,7 +48,7 @@ const Expenses = () => {
         
             <div className="row justify-content-center">
                 <section className="m-0 col-lg-9 col-md-11 mt-5">
-                    <h3 className="logo my-3 red">All Expenses:</h3>
+                    <h3 className="logo my-3 text-center red">All Expenses</h3>
                     <div className="table-responsive">
                         <table className="table table-dark" border="1" style={{textAlign: 'center'}}>                           
                             <tr>
