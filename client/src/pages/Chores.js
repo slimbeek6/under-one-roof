@@ -17,13 +17,13 @@ const Chores = () => {
     const showForm = () => {
         setDisplayForm(true)
     }
-    
+
     const [chores, setChores] = useState([]);
     const [users, setUsers] = useState([]);
-    const choreNameRef = useRef();
-    const choreDescRef = useRef();
-    const choreFreqRef = useRef();
-    const currentUser = AuthService.getCurrentUser();
+    // const choreNameRef = useRef();
+    // const choreDescRef = useRef();
+    // const choreFreqRef = useRef();
+    // const currentUser = AuthService.getCurrentUser();
 
     const getHomeId = () => {
         const HomeId = currentUser.id;
