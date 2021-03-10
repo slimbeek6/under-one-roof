@@ -86,7 +86,7 @@ function Navbar() {
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
-                <img src="/assets/img/addUser/addUserICON-48.png" alt="Sign Up Button"></img>
+                <img src="/assets/img/Register-with-House/register-with-houseICON-48.png" alt="Sign Up Button"></img>
                   Sign Up
                 </Link>
               </li>
