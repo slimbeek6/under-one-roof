@@ -40,7 +40,7 @@ function ProfileForm(props) {
 
   return (
     <div className="col-lg-4 col-md-6 col-sm-8 card mx-3 imitate-btn">
-      <img className="profile-img-card" src="/assets/img/green-plus.png" />
+      <img className="profile-img-card" src="/assets/img/addUser/addUserICON-96.png" />
       <label className="col-12 small form-label bold mt-2">New Roommate</label>
       <input className="col-12 small form-control my-1" type="text" placeholder="Name ..." required ref={name} />
       <input className="col-12 small form-control mb-1" type="text" placeholder="example@email.com" required ref={email} />
