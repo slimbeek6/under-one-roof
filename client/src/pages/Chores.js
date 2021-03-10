@@ -9,6 +9,15 @@ import ChoreTableRow from "../components/ChoreTableRow";
 
 
 const Chores = () => {
+    const [displayForm, setDisplayForm] = useState(false);
+
+    const hideForm = () => {
+        setDisplayForm(false)
+    }
+    const showForm = () => {
+        setDisplayForm(true)
+    }
+    
     const [chores, setChores] = useState([]);
     const [users, setUsers] = useState([]);
     const choreNameRef = useRef();

@@ -9,6 +9,13 @@ import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
 
 
+const style = {
+  logo: {
+    height: '200px',
+    objectFit: 'contain'
+  }
+}
+
 const Landing = () => {
   const [content, setContent] = useState("");
   const [chores, setChores] = useState([]);
@@ -57,10 +64,20 @@ const Landing = () => {
   })
 
   return (
-    <div className="container-fluid m-0">
-      <div className="jumbotron">
-        <h1>Welcome Home to {currentUser.username}!</h1>
-      </div>
+    <div className="container">
+      <header className="jumbotron whiteBG blue">
+        <div className="row">
+          <div className="col-4 d-flex">
+            <img className="img-fluid mx-auto" 
+              src="/assets/img/Brand/UnderOneRoof.png" 
+              style={style.logo} />
+          </div>
+          <div className="col-8 pt-5">
+            <h4 className="medium">Welcome home!</h4>
+            <h2 className="large display-3">{currentUser.username}</h2>
+          </div>
+        </div>
+      </header>
       <div className="row m-5">
         <div className="col-4">
           <ChoresCard list={limitedChores} heading="Chores Due" />
