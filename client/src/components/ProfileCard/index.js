@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function ProfileCard(props) {
   return (
     <>
-      <h2 className="col-12 large text-center mt-4 display-4 purple bold">Add New Roommate or Click One</h2>
+      <h2 className="col-12 large text-center mt-4 display-4 blue bold">Add New Roommate or Click One</h2>
       {props.users.map(user => {
         return (
           <Link className="col-lg-3 col-md-4 card mx-3 imitate-btn" to="/landing" key={user.id}>
