@@ -105,12 +105,12 @@ const Budget = () => {
         let otherPaid = 0;
 
         for (var i=0; i < data.expenses.length; i++) {
-            if (data.expenses[i].expenseType == "rent") {
+            if (data.expenses[i].expenseType === "rent" || data.expenses[i].expenseType === "Rent") {
                 rentOwed += parseInt(data.expenses[i].expenseAmount);
                 if (data.expenses[i].paid === true) {
                     rentPaid += parseInt(data.expenses[i].expenseAmount);
                 }
-            } else if (data.expenses[i].expenseType == "utilities") {
+            } else if (data.expenses[i].expenseType == "utilities" || data.expenses[i].expenseType == "utilities") {
                 utilitiesOwed += parseInt(data.expenses[i].expenseAmount);
                 if (data.expenses[i].paid === true) {
                     utilitiesPaid += parseInt(data.expenses[i].expenseAmount);
