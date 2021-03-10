@@ -77,13 +77,13 @@ const Chores = () => {
         <div className="container-fluid">
             <div className="row-fluid">
                 <div className="col md-12">
-                    <h1>Household Chores</h1>
+                    <h1 className="logo large text-center mt-5 red">Household Chores</h1>
                 </div>
             </div>
             <div className="row">
-                <div className="card col-md-6">
-                    <h2>Chore List:</h2>
-                    <table border="1" style={{width: "80%", textAlign: "center"}}>
+                <div className="card col-lg-6 col-md-8">
+                    <h2 className="medium mb-5 bold">Chore List</h2>
+                    <table className="table w-100" border="1" style={{width: "80%", textAlign: "center"}}>
                         <tr>
                             <th>Chore Name</th>
                             <th>Chore Description</th>
@@ -95,13 +95,13 @@ const Chores = () => {
                         ))}
                     </table>
                 </div>
-                <div className="card col-md-5">
-                    <h2>Add a New Chore:</h2>
+                <div className="card col-lg-5 col-md-8">
+                    <h2 className="medium mb-5 bold">Add a New Chore</h2>
                     <form className="form-group" onSubmit={addChore}>
-                        <input className="form-control mb-5" required ref={choreNameRef} placeholder="Name of chore" />
-                        <input className="form-control mb-5" required ref={choreDescRef} placeholder="Brief description of chore" />
-                        <input className="form-control mb-5" required ref={choreFreqRef} placeholder="How often (in days) should the chore be done?" />
-                        <button className="btn btn-success mt-3 mb-5" type="submit">Add Chore</button>
+                        <input className="form-control mb-4" required ref={choreNameRef} placeholder="Name of chore" />
+                        <input className="form-control mb-4" required ref={choreDescRef} placeholder="Brief description of chore" />
+                        <input className="form-control mb-4" required ref={choreFreqRef} placeholder="How often (in days) should the chore be done?" />
+                        <button className="btn btn-success mt-3" type="submit">Add Chore</button>
                     </form>
                 </div>
             </div>

@@ -28,7 +28,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {currentUser && (
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link to={"/budget"} className="nav-link">
               <img src="/assets/img/NewBudget/UnderOneRoofNewBudgetLOGO48.png" alt="Budget Button"></img>
                 Budget
@@ -36,7 +36,7 @@ function Navbar() {
             </li>
             )}
             {currentUser && (
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/chores"} className="nav-link">
                 <img src="/assets/img/Chores/UnderOneRoofChoreLOGO48.png" alt="Chores Button"></img>
                   Chores
@@ -44,7 +44,7 @@ function Navbar() {
               </li>
             )}
             {currentUser && (
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/calendar"} className="nav-link">
                 <img src="/assets/img/Calendar/UnderOneRoofCal-48.png" alt="Calendar Button"></img>
                   Calendar
@@ -52,7 +52,7 @@ function Navbar() {
               </li>
             )}
             {currentUser && (
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/expenses"} className="nav-link">
                 <img src="/assets/img/Expenses/UnderOneRoofExpense-48.png" alt="Expense Button"></img>
                   Expenses
@@ -62,13 +62,13 @@ function Navbar() {
           </ul>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/profile"} className="nav-link">
                 <img src="/assets/img/Profile/profileICON-48.png" alt="Profile Button"></img>
                   {currentUser.username}
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item active">
                 <a href="/login" className="nav-link" onClick={logOut}>
                 <img src="/assets/img/LoginOut-with-House/LoginOutICON-48.png" alt="LogOut Button"></img>
                   LogOut
@@ -77,14 +77,14 @@ function Navbar() {
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/login"} className="nav-link">
                 <img src="/assets/img/LoginOut-with-House/LoginOutICON-48.png" alt="Login Button"></img>
                   Login
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item active">
                 <Link to={"/register"} className="nav-link">
                 <img src="/assets/img/Register-with-House/register-with-houseICON-48.png" alt="Sign Up Button"></img>
                   Sign Up
