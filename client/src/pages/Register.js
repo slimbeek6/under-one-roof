@@ -164,7 +164,9 @@ const Register = (props) => {
                 {message}
               </div>
               <div className="d-flex justify-content-center">
-                <a href="/login" className="button">Login</a>
+                <a href="/login">
+                  <img src="/assets/img/Login/loginICON-72.png" alt="Login button image" />
+                </a>
               </div>
             </div>
           )}
