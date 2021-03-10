@@ -4,6 +4,7 @@ import ChoresCard from '../components/RecentCard/ChoresCard';
 import EventsCard from '../components/RecentCard/EventsCard';
 import ExpensesCard from '../components/RecentCard/ExpensesCard';
 import UserCard from '../components/RecentCard/UserCard';
+import ContactCard from '../components/ContactCard/index';
 import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
 
@@ -73,7 +74,8 @@ const Landing = () => {
       </div>
       <div className="row m-5">
       <div className="col-12">
-          <UserCard list={users} heading="Roommate Contact List" />
+          {/* <UserCard list={users} heading="Roommate Contact List" /> */}
+          <ContactCard list={users} />
         </div>
       </div>
     </div>
