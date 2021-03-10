@@ -64,11 +64,13 @@ function Navbar() {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
+                <img src="/assets/img/Profile/profileICON-48.png" alt="Profile Button"></img>
                   {currentUser.username}
                 </Link>
               </li>
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={logOut}>
+                <img src="/assets/img/LoginOut-with-House/LoginOutICON-48.png" alt="LogOut Button"></img>
                   LogOut
                 </a>
               </li>
@@ -77,12 +79,14 @@ function Navbar() {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
+                <img src="/assets/img/LoginOut-with-House/LoginOutICON-48.png" alt="Login Button"></img>
                   Login
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
+                <img src="/assets/img/Register-with-House/register-with-houseICON-48.png" alt="Sign Up Button"></img>
                   Sign Up
                 </Link>
               </li>

@@ -27,10 +27,10 @@ const validEmail = (value) => {
 };
 
 const vusername = (value) => {
-  if (value.length < 3 || value.length > 20) {
+  if (value.length < 3 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        The address or nickname must be between 3 and 40 characters.
       </div>
     );
   }
@@ -104,7 +104,7 @@ const Register = (props) => {
     <div className="col-md-12">
       <div className="card card-container mx-auto my-5">
         <img
-          src="/assets/img/Brand/UnderOneRoof-96.png"
+          src="/assets/img/addUser/addUserICON-96.png"
           // src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
           className="profile-img-card"
@@ -114,10 +114,9 @@ const Register = (props) => {
           {!successful && (
             <div>
               <div className="form-group">
-                <label htmlFor="username">Home Name</label>
+                <label htmlFor="username">Address / Home Nickname</label>
                 <Input
                   type="text"
-                  placeholder="Enter street address or nickname"
                   className="form-control"
                   name="username"
                   value={username}
@@ -165,7 +164,9 @@ const Register = (props) => {
                 {message}
               </div>
               <div className="d-flex justify-content-center">
-                <a href="/login" className="button">Login</a>
+                <a href="/login">
+                  <img src="/assets/img/Login/loginICON-72.png" alt="Login button image" />
+                </a>
               </div>
             </div>
           )}

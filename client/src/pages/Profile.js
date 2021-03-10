@@ -39,7 +39,7 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <header className="jumbotron yellowBG">
+      <header className="jumbotron whiteBG blue">
         <div className="row">
           <div className="col-4 d-flex">
             <img className="img-fluid mx-auto" 
