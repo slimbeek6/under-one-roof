@@ -46,27 +46,25 @@ const Expenses = () => {
 
     return (
         
-            <div className="row">
-                <section className="card col-md-6">
-                    <h3>All Expenses:</h3>
-                    <table border="1" style={{width: "96%", textAlign: "center"}}>                           
-                        <tr>
-                            <th>Expense Name</th>
-                            <th>Expense Amount</th>
-                            <th>Expense Type</th>
-                            <th>Expense Paid?</th>
-                            <th>Expense Paid By</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        {state.expenses.map(expense => (
-                            <ExpensesTbl  expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseType={expense.expenseType} paid={expense.paid} paidBy={expense.paidBy} id={expense.id}/> 
-                        ))}
-                    </table>
-                </section>
-
-                <section className="card col-mb-6">
-                    
+            <div className="row justify-content-center">
+                <section className="m-0 col-lg-9 col-md-11 mt-5">
+                    <h3 className="logo my-3 red">All Expenses:</h3>
+                    <div className="table-responsive">
+                        <table className="table table-dark" border="1" style={{textAlign: 'center'}}>                           
+                            <tr>
+                                <th>Expense Name</th>
+                                <th>Expense Amount</th>
+                                <th>Expense Type</th>
+                                <th>Expense Paid?</th>
+                                <th>Expense Paid By</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            {state.expenses.map(expense => (
+                                <ExpensesTbl  expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseType={expense.expenseType} paid={expense.paid} paidBy={expense.paidBy} id={expense.id}/> 
+                            ))}
+                        </table>
+                    </div>
                 </section>
             </div>
         

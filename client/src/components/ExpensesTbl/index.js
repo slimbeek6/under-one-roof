@@ -41,9 +41,9 @@ export default function ExpensesTbl(props) {
         <td>{paid}</td>
         <td>{props.paidBy}</td>
         <td>
-          <form id={props.id} onSubmit={runEdit}>
-            <input id={props.id} required ref={paidByRef} className="mt-2 mb-2" placeholder="Paid by name ..." />
-            <button id={props.id} className="btn btn-success mt-3 mb-5" type="submit">Save</button>
+          <form className="d-flex align-items-center" id={props.id} onSubmit={runEdit}>
+            <input id={props.id} className="form-control" required ref={paidByRef} placeholder="Paid by name ..." />
+            <button id={props.id} className="btn btn-success ml-2" type="submit">Save</button>
           </form>
         </td>
         <td>
