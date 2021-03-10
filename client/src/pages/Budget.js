@@ -256,8 +256,8 @@ const Budget = () => {
                                     <input className="form-control mb-2 small" required ref={expamtRef} placeholder="Expense Amount" />
                                     <input className="form-control mb-3 small" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
                                     <div className="form-check mb-3 ml-2">
-                                        <input className="form-check-input small" type="checkbox" value="" id="paidCheckBox" />
-                                        <label className="form-check-label" for="paidCheckBox">Paid?</label>
+                                        <input className="form-check-input" type="checkbox" value="" id="paidCheckBox" style={{height: '25px', width: '25px'}} />
+                                        <label className="form-check-label small ml-4" for="paidCheckBox">Paid?</label>
                                     </div>
                                     <input className="form-control mb-2 small" ref={paidBy} placeholder="Paid by ..." />
                                     <button className="btn btn-success small mt-3 mb-5" type="submit">Save Expense</button>

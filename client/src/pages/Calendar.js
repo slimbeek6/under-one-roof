@@ -16,11 +16,11 @@ function Calendar() {
   return (
     <div className="container">
       <header className="row justify-content-center p-3">
-        <div className="col-8 d-flex align-items-center justify-content-center mt-5">
+        <div className="col-lg-7 col-md-5 d-flex align-items-center justify-content-center mt-5">
           <img className="img-fluid" src="/assets/img/Calendar/UnderOneRoofCal-96.png" />
-          <h1 className="large text-center display-1 blue mt-3 mx-5 bold">Calendar</h1>
+          <h1 className="large text-center display-1 blue mt-3 mx-5 logo">Calendar</h1>
         </div>
-        <div className="col-lg-4 col-md-6 mt-5 d-flex">
+        <div className="col-lg-5 col-md-7 mt-5 d-flex">
           <MiniCal />
         </div>
       </header>

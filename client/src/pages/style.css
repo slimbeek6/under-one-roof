@@ -46,11 +46,14 @@ body {
 .bold {
     font-weight: 700;
 }
-.large {
+.xlarge {
     font-size: 6vmin;
 }
+.large {
+    font-size: 4vmin;
+}
 .medium {
-    font-size: 2.5vmin;
+    font-size: 2.2vmin;
 }
 .small {
     font-size: 1vmax;
