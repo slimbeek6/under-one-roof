@@ -39,16 +39,16 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <header className="jumbotron whiteBG">
+      <header className="jumbotron whiteBG blue">
         <div className="row">
-          <div className="col-4 d-flex">
+          <div className="col-md-4 col-sm d-flex">
             <img className="mx-auto" 
               src="/assets/img/Brand/UnderOneRoof.png" 
               style={style.logo} />
           </div>
-          <div className="col-8 pt-5">
+          <div className="col-md-8 col-sm pt-5">
             <h4>Welcome home!</h4>
-            <h2 className="display-3">{currentUser.username}</h2>
+            <h3 className="display-3">{currentUser.username}</h3>
           </div>
         </div>
       </header>
