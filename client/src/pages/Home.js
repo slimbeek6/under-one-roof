@@ -30,9 +30,9 @@ const Home = () => {
   return (
     <div className="container">
       <header className="row d-flex">
-        <img className="col-12 mx-auto my-5" src="/assets/img/Brand/UnderOneRoof.png" style={style.hero}></img>
-        <h2 className="col-12 text-center purple">Welcome to</h2>
-        <h1 className="col-12 text-center blue logo display-3"><span className="blue">Under</span><span className="yellow">One</span><span className="red">Roof</span></h1>
+        <img className="img-fluid col-12 mx-auto my-5" src="/assets/img/Brand/UnderOneRoof.png" style={style.hero}></img>
+        <h2 className="col-12 medium text-center purple">Welcome to</h2>
+        <h1 className="col-12 large text-center blue logo display-3"><span className="blue">Under</span><span className="yellow">One</span><span className="red">Roof</span></h1>
       </header>
     </div>
   );

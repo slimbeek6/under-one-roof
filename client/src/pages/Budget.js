@@ -191,53 +191,53 @@ const Budget = () => {
     const totalPaid = totalPaidFormat(barData);
 
     return (
-            <div className="container-fluid">
+            <div className="container-fluid px-5">
                 <div className="row-fluid">
                     <div className="col md-12">
-                        <h1>Overall Roommate Budget Page</h1>
+                        <h1 className="logo mt-5 ml-4 red">Overall Roommate Budget Page</h1>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="card col-md-5">
-                        <h2>Total Budget</h2>
-                        <div className="row justify-content-center my-4">
-                            <div className="col-7 chart">
+                    <div className="card col-xl-5 col-lg-8">
+                        <h2 className="medium text-center">Total Budget</h2>
+                        <div className="row my-4 d-flex justify-content-center">
+                            <div className="col-lg-7 chart d-flex justify-content-center">
                                 <RadialChart
                                 data={pieData}
                                 radius={125}
                                 width={300}
                                 height={300} />
                             </div>
-                            <div className="col-5">
-                                <h4>Breakdown of Expenses:</h4>
+                            <div className="col-lg-8">
+                                <h4 className="medium text-center">Breakdown of Expenses:</h4>
                                 <div className="card">
-                                    <h6>Total Rent: ${labelData[0].y}  <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total Utilities: ${labelData[1].y}  <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
-                                    <h6>Total Other Expenses: ${labelData[2].y}  <span><img src="/assets/Other.png" alt="rent slice color"></img></span></h6>
+                                    <h6 className="small">Total Rent: ${labelData[0].y}  <span><img className="img-fluid" src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6 className="small">Total Utilities: ${labelData[1].y}  <span><img className="img-fluid" src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                                    <h6 className="small">Total Other Expenses: ${labelData[2].y}  <span><img className="img-fluid" src="/assets/Other.png" alt="rent slice color"></img></span></h6>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="card col-md-5">
-                        <h2>Roommate Budget and Payments</h2>
-                        <div className="row">
-                            <div className="col-md-8">
-                            <XYPlot xType="ordinal" height={400} width={350} xDistance={100}>
+                    <div className="card col-xl-5 col-lg-8">
+                        <h2 className="medium mb-4 text-center">Roommate Budget and Payments</h2>
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                            <XYPlot xType="ordinal" height={400} width={400} xDistance={100}>
                                 <XAxis />
                                 <YAxis />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalOwed} />
                                 <VerticalBarSeries className="vertical-bar-series-example" data={barData.totalPaid} />
                             </XYPlot>
                             </div>
-                            <div className="col-md-4">
-                                <h4>Breakdown of Payments:</h4>
-                                <div className="card">
-                                    <h6>Paid: ${totalPaid}  <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
-                                    <h6>Total: ${totalOwed} <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
+                            <div className="col-lg-8">
+                                <h4 className="small bold text-center my-4">Breakdown of Payments:</h4>
+                                <div className="card my-0">
+                                    <h6 className="small">Paid: ${totalPaid}  <span><img src="/assets/Rent.png" alt="rent slice color"></img></span></h6>
+                                    <h6 className="small">Total: ${totalOwed} <span><img src="/assets/Utilities.png" alt="utilities slice color"></img></span></h6>
                                 </div>
                                 <br />
                                 <div>
-                                    <h4>Sum of Roommate Payments:</h4>
+                                    <h4 className="small bold text-center">Sum of Roommate Payments:</h4>
                                         <PaymentList data={state} />
                                 </div>
                             </div>
@@ -246,23 +246,26 @@ const Budget = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="card col-md-10" id="bottomcard">
-                        <h2>Expense Management:</h2>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h3>Add New Expense:</h3>
+                    <div className="card col-lg-8 col-md-12" id="bottomcard">
+                        <h2 className="medium text-center">Expense Management</h2>
+                        <div className="row mt-4 d-flex justify-content-center">
+                            <div className="col-xl-6 col-lg-10">
+                                <h3 className="small bold">Add New Expense:</h3>
                                 <form className="form-group" onSubmit={addExpense}>
-                                    <input className="form-control mb-5" required ref={expnameRef} placeholder="Name of Expense"/>
-                                    <input className="form-control mb-5" required ref={expamtRef} placeholder="Expense Amount" />
-                                    <input className="form-control mb-5" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
-                                    <label className="label">Paid?<span><input type="checkbox" className="form-control mb-5" ref={paid} /></span></label>
-                                    <input className="form-control mb-5" ref={paidBy} placeholder="Paid by ..." />
-                                    <button className="btn btn-success mt-3 mb-5" type="submit">Save Expense</button>
+                                    <input className="form-control mb-2 small" required ref={expnameRef} placeholder="Name of Expense"/>
+                                    <input className="form-control mb-2 small" required ref={expamtRef} placeholder="Expense Amount" />
+                                    <input className="form-control mb-3 small" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
+                                    <div className="form-check mb-3 ml-2">
+                                        <input className="form-check-input small" type="checkbox" value="" id="paidCheckBox" />
+                                        <label className="form-check-label" for="paidCheckBox">Paid?</label>
+                                    </div>
+                                    <input className="form-control mb-2 small" ref={paidBy} placeholder="Paid by ..." />
+                                    <button className="btn btn-success small mt-3 mb-5" type="submit">Save Expense</button>
                                 </form>
                             </div>
-                            <div className="col-md-6">
-                                <h3>Largest Expenses:</h3>
-                                <table border="1" style={{width: "80%", textAlign: "center"}}>                           
+                            <div className="col-xxl-6 col-xl-10">
+                                <h3 className="medium text-center">Largest Expenses</h3>
+                                <table className="table" border="1" style={{textAlign: "center"}}>                           
                                     <tr>
                                         <th>Expense Name</th>
                                         <th>Expense Amount</th>
