@@ -11,7 +11,7 @@ function MiniCal() {
   }
 
   return (
-    <div>
+    <div className="mx-auto">
       <Calendar
       onChange={onChange}
       value={date}

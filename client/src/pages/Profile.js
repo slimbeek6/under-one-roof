@@ -41,14 +41,14 @@ const Profile = () => {
     <div className="container">
       <header className="jumbotron whiteBG blue">
         <div className="row">
-          <div className="col-md-4 col-sm d-flex">
-            <img className="mx-auto" 
+          <div className="col-4 d-flex">
+            <img className="img-fluid mx-auto" 
               src="/assets/img/Brand/UnderOneRoof.png" 
               style={style.logo} />
           </div>
-          <div className="col-md-8 col-sm pt-5">
-            <h4>Welcome home!</h4>
-            <h3 className="display-3">{currentUser.username}</h3>
+          <div className="col-8 pt-5">
+            <h4 className="medium">Welcome home!</h4>
+            <h2 className="large display-3">{currentUser.username}</h2>
           </div>
         </div>
       </header>

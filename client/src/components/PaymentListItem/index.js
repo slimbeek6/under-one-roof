@@ -26,33 +26,33 @@ export default function PaymentListItem(props) {
         output = <h6>{namesArr[0]}: <span><p>${amountArr[0]}</p></span></h6>;
     } else if (names === 2) {
         output = 
-            <div>
-                <h6>{namesArr[0]}: <span><p>${amountArr[0]}</p></span></h6>
-                <h6>{namesArr[1]}: <span><p>${amountArr[1]}</p></span></h6>
+            <div className="row">
+                <p className="col-5 small text-center">{namesArr[0]} <br/> <span className="red">${amountArr[0]}</span></p>
+                <p className="col-5 small text-center">{namesArr[1]} <br/> <span className="red">${amountArr[1]}</span></p>
             </div>;
     } else if (names === 3) {
         output = 
-            <div>
-                <h6>{namesArr[0]}: <span><p>${amountArr[0]}</p></span></h6>
-                <h6>{namesArr[1]}: <span><p>${amountArr[1]}</p></span></h6>
-                <h6>{namesArr[2]}: <span><p>${amountArr[0]}</p></span></h6>
+            <div className="row">
+                <p className="col-4 small text-center">{namesArr[0]} <br/> <span className="red">${amountArr[0]}</span></p>
+                <p className="col-4 small text-center">{namesArr[1]} <br/> <span className="red">${amountArr[1]}</span></p>
+                <p className="col-4 small text-center">{namesArr[2]} <br/> <span className="red">${amountArr[2]}</span></p>
             </div>;
     } else if (names === 4) {
         output = 
-            <div>
-                <h6>{namesArr[0]}: <span><p>${amountArr[0]}</p></span></h6>
-                <h6>{namesArr[1]}: <span><p>${amountArr[1]}</p></span></h6>
-                <h6>{namesArr[2]}: <span><p>${amountArr[0]}</p></span></h6>
-                <h6>{namesArr[3]}: <span><p>${amountArr[0]}</p></span></h6>
+            <div className="row">
+                <p className="col-3 small text-center">{namesArr[0]} <br/> <span className="red">${amountArr[0]}</span></p>
+                <p className="col-3 small text-center">{namesArr[1]} <br/> <span className="red">${amountArr[1]}</span></p>
+                <p className="col-3 small text-center">{namesArr[2]} <br/> <span className="red">${amountArr[2]}</span></p>
+                <p className="col-3 small text-center">{namesArr[3]} <br/> <span className="red">${amountArr[3]}</span></p>
             </div>;
     } else {
-        output = <h6>No Payments Yet</h6>;
+        output = <h6 className="text-center red">No Payments Yet</h6>;
     }
 
     console.log(output);
 
     return (
-        <div>
+        <div className="w-100">
             {output}
         </div>
     )

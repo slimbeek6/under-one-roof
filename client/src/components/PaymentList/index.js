@@ -31,7 +31,7 @@ export default function PaymentList(props) {
     console.log(roomies);
 
     return (
-        <div>
+        <div className="d-flex justify-content-center border">
                 <PaymentListItem name={roomies} />
         </div>
     )
