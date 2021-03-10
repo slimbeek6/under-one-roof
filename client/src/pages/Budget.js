@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import API from "../utils/API";
 import { useExpenseContext } from "../utils/GlobalState";
-import { GET_EXPENSES } from "../utils/actions";
+import { GET_EXPENSES, ADD_EXPENSE } from "../utils/actions";
 import "./style.css";
 import { RadialChart, XAxis, XYPlot, YAxis, VerticalBarSeries, LabelSeries } from "react-vis";
 import PaymentList from "../components/PaymentList";
@@ -29,8 +29,6 @@ const Budget = () => {
 
     const getExpenses = (data) => {
         let id = data;
-        console.log(id);
-
         API.getExpenses(id)
         .then(results => {
             sortExpenses(results.data)
@@ -41,25 +39,11 @@ const Budget = () => {
         })       
     }
 
-    useEffect (() => {
-        getExpenses(HomeId);
+    
+
+    useEffect (async () =>  {
+        await getExpenses(HomeId);
     }, []);  
-
-    // Data Add Function
-    const addExpense = () => {        
-        let newExpense = {
-            expenseName: expnameRef.current.value,
-            expenseAmount: expamtRef.current.value,
-            expenseType: exptypeRef.current.value,
-            paid: paid.current.checked,
-            paidBy: paidBy.current.value,
-            expenseDate: Date.now(),
-            HomeId: currentUser.id
-        }
-        
-        API.addExpense(newExpense);
-    };
-
 
     // Data Clean-up Functions
     const sortExpenses = (data) => {
@@ -67,6 +51,26 @@ const Budget = () => {
             return b.expenseAmount - a.expenseAmount;
         });
     }  
+
+    // Data Add Function
+    const addExpense = () => {        
+        let expenseData = {
+            expenseName: expnameRef.current.value,
+            expenseAmount: expamtRef.current.value,
+            expenseType: exptypeRef.current.value,
+            paid: paid.current.checked,
+            paidBy: paidBy.current.value,
+            expenseDate: Date.now(),
+            HomeId: HomeId
+        }
+        API.addExpense(expenseData)
+        .then(results => {
+            dispatch({
+                type: ADD_EXPENSE,
+                expenses: results.data
+            });
+        })
+    };
 
     const pieDataFormat = (data) => {
         // Create totals variables
@@ -89,7 +93,7 @@ const Budget = () => {
         pieChart.push({angle: utilitiesSum, label: utilitiesSum});
         pieChart.push({angle: otherSum, label: otherSum});
         return pieChart;
-    }
+    };
 
     const barDataFormat = (data) => {
         // Create totals variables
@@ -124,7 +128,7 @@ const Budget = () => {
         let exportedData = {totalOwed: totalOwed, totalPaid: totalPaid};
 
         return exportedData;
-    }
+    };
     
     const barLabelData = (data) => {
         let totalOwed = data.totalOwed;
@@ -135,7 +139,7 @@ const Budget = () => {
         }));
 
         return labelData
-    }
+    };
 
     const pieData = pieDataFormat(state);
     const barData = barDataFormat(state);
@@ -144,35 +148,30 @@ const Budget = () => {
     let labelData = barLabels;
 
     const totalOwedFormat = (data) => {
-        let paid = 0;
         let owed = 0;
         
         for (var i =0; i< data.totalOwed.length; i++) {
             owed += parseInt(data.totalOwed[i].y);
         }
 
-        for (var j =0; j< data.totalPaid.length; j++) {
-            paid += parseInt(data.totalPaid[j].y);
-        }
-
         return owed;
-    }
+    };
     
     const totalPaidFormat = (data) => {
-        let paid = 0;
+        let paidTot = 0;
         
         for (var j =0; j< data.totalPaid.length; j++) {
-            paid += parseInt(data.totalPaid[j].y);
+            paidTot += parseInt(data.totalPaid[j].y);
         }
 
-        return paid;
-    }
+        return paidTot;
+    };
 
     const totalOwed = totalOwedFormat(barData);
     const totalPaid = totalPaidFormat(barData);
 
     const getRowData = (data) => {
-        let expData = [];
+        let rowData = [];
         let rowObj = {};
         for ( var i=0; i < data.expenses.length; i++) {
             let keys = Object.keys(data.expenses[i]);
@@ -194,13 +193,14 @@ const Budget = () => {
 
             keys.forEach((key, k) => rowObj[key] = values[k]);
             
-            expData.push(rowObj);
+            rowData.push(rowObj);
             rowObj = {};
         }
-        return expData;
-    }
+        return rowData;
+    }   
 
     const rowData = getRowData(state);
+
     const data = React.useMemo(
         ()=> rowData,
         []
@@ -308,7 +308,7 @@ const Budget = () => {
                                     <input className="form-control mb-2 small" required ref={expamtRef} placeholder="Expense Amount" />
                                     <input className="form-control mb-3 small" required ref={exptypeRef} placeholder="Expense Type, enter Rent, Utilities, or Other" />
                                     <div className="form-check mb-3 ml-2">
-                                        <input className="form-check-input" type="checkbox" value="" id="paidCheckBox" style={{height: '25px', width: '25px'}} />
+                                        <input className="form-check-input" type="checkbox" value="" ref={paid} id="paidCheckBox" style={{height: '25px', width: '25px'}} />
                                         <label className="form-check-label small ml-4" for="paidCheckBox">Paid?</label>
                                     </div>
                                     <input className="form-control mb-2 small" ref={paidBy} placeholder="Paid by ..." />
