@@ -79,9 +79,9 @@ const Budget = () => {
         let otherSum = 0;
 
         for (var i = 0; i < data.expenses.length; i++) {
-            if (data.expenses[i].expenseType == "rent") {
+            if (data.expenses[i].expenseType === "rent" || data.expenses[i].expenseType === "Rent") {
                 rentSum += parseInt(data.expenses[i].expenseAmount);
-            } else if (data.expenses[i].expenseType == "utilities") {
+            } else if (data.expenses[i].expenseType === "utilities" || data.expenses[i].expenseType == "Utilities") {
                 utilitiesSum += parseInt(data.expenses[i].expenseAmount);
             } else {
                 otherSum += parseInt(data.expenses[i].expenseAmount);
@@ -110,7 +110,7 @@ const Budget = () => {
                 if (data.expenses[i].paid === true) {
                     rentPaid += parseInt(data.expenses[i].expenseAmount);
                 }
-            } else if (data.expenses[i].expenseType == "utilities" || data.expenses[i].expenseType == "utilities") {
+            } else if (data.expenses[i].expenseType == "utilities" || data.expenses[i].expenseType == "Utilities") {
                 utilitiesOwed += parseInt(data.expenses[i].expenseAmount);
                 if (data.expenses[i].paid === true) {
                     utilitiesPaid += parseInt(data.expenses[i].expenseAmount);
