@@ -8,6 +8,13 @@ import ContactCard from '../components/ContactCard/index';
 import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
 
+const style = {
+  logo: {
+    height: '200px',
+    objectFit: 'contain'
+  }
+}
+
 
 const Landing = () => {
   const [content, setContent] = useState("");
@@ -58,25 +65,33 @@ const Landing = () => {
 
   return (
     <div className="container-fluid m-0">
-      <div className="jumbotron">
-        <h1>Welcome Home to {currentUser.username}!</h1>
-      </div>
-      <div className="row m-5">
-        <div className="col-4">
+      <header className="jumbotron whiteBG blue mx-5 px-5 justify-content-center d-flex">
+        <div className="row">
+          <div className="col-4 d-flex">
+            <img className="img-fluid mx-auto" 
+              src="/assets/img/Brand/UnderOneRoof.png" 
+              style={style.logo} />
+          </div>
+          <div className="col-8 pt-5">
+            <h2 className="large display-3">{currentUser.username}</h2>
+            <h4 className="medium mt-4 red">Summary</h4>
+          </div>
+        </div>
+      </header>
+      <div className="row justify-content-around m-5">
+        <div className="col-xl-4 col-lg-5 col-sm-7">
           <ChoresCard list={limitedChores} heading="Chores Due" />
         </div>
-        <div className="col-4">
+        <div className="col-xl-4 col-lg-5 col-sm-7">
           <EventsCard list={limitedEvents} heading="Upcoming Events" />
         </div>
-        <div className="col-4">
+        <div className="col-xl-4 col-lg-5 col-sm-7">
           <ExpensesCard list={limitedExpenses} heading="Recent Expenses" />
         </div>
       </div>
-      <div className="row m-5">
-      <div className="col-12">
-          {/* <UserCard list={users} heading="Roommate Contact List" /> */}
-          <ContactCard list={users} />
-        </div>
+      <div className="row justify-content-around m-5">
+      <h2 className="col-12 large text-center mt-4 display-4 blue bold">Roommate Contact List</h2>
+        <ContactCard list={users} />
       </div>
     </div>
   );

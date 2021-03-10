@@ -18,8 +18,8 @@ function Calendar() {
       <header className="row justify-content-around p-3">
         <div className="col-lg-5 col-md-8 d-flex align-items-center justify-content-center m-3">
           <div className="row justify-content-center">
-            <img className="col-4 border img-fluid" src="/assets/img/Calendar/UnderOneRoofCal-96.png" />
-            <h1 className=" col-12 border large text-center display-1 blue mt-3 mx-5 logo">Calendar</h1>
+            <img className="col-4 img-fluid" src="/assets/img/Calendar/UnderOneRoofCal-96.png" />
+            <h1 className=" col-12 large text-center display-1 blue mt-3 mx-5 logo">Calendar</h1>
           </div>
         </div>
         <div className="col-lg-5 col-md-8 m-3 d-flex">
