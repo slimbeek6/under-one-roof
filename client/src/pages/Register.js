@@ -27,10 +27,10 @@ const validEmail = (value) => {
 };
 
 const vusername = (value) => {
-  if (value.length < 3 || value.length > 20) {
+  if (value.length < 3 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        The address or nickname must be between 3 and 40 characters.
       </div>
     );
   }
@@ -114,10 +114,9 @@ const Register = (props) => {
           {!successful && (
             <div>
               <div className="form-group">
-                <label htmlFor="username">Home Name</label>
+                <label htmlFor="username">Address / Home Nickname</label>
                 <Input
                   type="text"
-                  placeholder="Enter street address or nickname"
                   className="form-control"
                   name="username"
                   value={username}
