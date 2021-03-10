@@ -38,6 +38,9 @@ body {
 .orangeBG {
     background: #ff9234;
 }
+.whiteBG {
+    background: white;
+}
 
 /* FONTS */
 .logo {
