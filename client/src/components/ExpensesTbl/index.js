@@ -1,12 +1,9 @@
 import React, { useRef } from "react";
 import API from "../../utils/API";
 
-
-
 export default function ExpensesTbl(props) {
   let paid = false;
   const paidByRef = useRef();
-
 
   const setPaid = (data) => {
     if (data) {
@@ -19,14 +16,12 @@ export default function ExpensesTbl(props) {
     let id = event.target.id;
     let paidBy = paidByRef.current.value;
     let expenseData = {paid: true, paidBy: paidBy};
-    localStorage.setItem("id", `${paidBy}`);
     API.editExpense(id, expenseData);
     window.location.reload();
   }
 
   const runDelete = (event) => {
     let id = event.target.id;
-    // console.log(id);
     API.deleteExpense(id);
     window.location.reload();
   }

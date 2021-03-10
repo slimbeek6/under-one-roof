@@ -5,7 +5,6 @@ const path = require("path");
 const router = require("express").Router();
 const expenseController = require("../controllers/expenseController");
 const choreController = require("../controllers/choreController");
-// const verifySignUp = require("../config/middleware/verifySignUp");
 const { verifySignUp } = require("../config/middleware");
 const authController = require("../controllers/auth.controller");
 const eventController = require("../controllers/eventController");
@@ -19,7 +18,6 @@ router
   .route("/api/expenses")
   .post(expenseController.add);
   
-
 router
   .route("/api/expenses/:id")
   .put(expenseController.edit)
@@ -37,8 +35,6 @@ router
   .route("/api/chores/:id")
   .delete(choreController.delete);
 
-
-  
 
 // Authentication
 router.use(function(req, res, next) {
@@ -81,7 +77,6 @@ router
 router
   .route("/api/users/:id")
   .get(userController.findAll)
-  // .get(userController.findOne)
   .delete(userController.delete)
 
 
@@ -93,6 +88,4 @@ if (process.env.NODE_ENV === "production") {
     })
 }
 
-
-  
 module.exports = router;

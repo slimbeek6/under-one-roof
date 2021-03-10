@@ -1,20 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import API from "../utils/API";
 import { useExpenseContext } from "../utils/GlobalState";
 import  ExpensesTbl  from "../components/ExpensesTbl";
-import { ADD_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
+import { GET_EXPENSES } from "../utils/actions";
 import AuthService from "../services/auth.service";
 
 const Expenses = () => {
+    // Getting data from state and page
     const [state, dispatch] = useExpenseContext();
     const currentUser = AuthService.getCurrentUser();
 
-    const sortExpenses = (data) => {
-        data.sort(function (a, b) {
-            return b.expenseAmount - a.expenseAmount;
-        });
-    }
-
+    
+    // Data Retrieval Functions
     const getHomeId = () => {
         const HomeId = currentUser.id;
         return HomeId;
@@ -31,18 +28,19 @@ const Expenses = () => {
                 type: GET_EXPENSES,
                 expenses: results.data
             });
-            // console.log(state);
         })
-        
     }
 
     useEffect (() => {
         getExpenses(HomeId);
     }, []);
 
-
-
-
+    // Data Manipulation Function
+    const sortExpenses = (data) => {
+        data.sort(function (a, b) {
+            return b.expenseAmount - a.expenseAmount;
+        });
+    }
 
     return (
         

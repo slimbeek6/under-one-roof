@@ -17,12 +17,9 @@ export default function ChoreTableRow(props) {
   useEffect(() => {
     API.getUsers(HomeId)
     .then(users => {
-      // console.log(expenses)
       setUsers(users.data)
     }).catch(err => console.error(err))
   }, [])
-
-  console.log(users);
 
   return (
         <tr>

@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
     ADD_EXPENSE,
-    UPDATE_EXPENSE,
     DELETE_EXPENSE,
     GET_EXPENSES
 } from "./actions";

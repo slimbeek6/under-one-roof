@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import API from "../utils/API";
-import { useChoreContext } from "../utils/GlobalState";
-import { GET_CHORES } from "../utils/actions";
 import "./style.css";
 import AuthService from "../services/auth.service";
 import ChoreTableRow from "../components/ChoreTableRow";
 
 
 const Chores = () => {
+    // Getting data from state and page
     const [chores, setChores] = useState([]);
     const [users, setUsers] = useState([]);
     const choreNameRef = useRef();
@@ -16,6 +14,7 @@ const Chores = () => {
     const choreFreqRef = useRef();
     const currentUser = AuthService.getCurrentUser();
 
+    // Data Retrieval Functions
     const getHomeId = () => {
         const HomeId = currentUser.id;
         return HomeId;
@@ -36,6 +35,7 @@ const Chores = () => {
         getChores(HomeId);
     }, []);
     
+    // Data Manipulation Functions
     const getAssignee = () => {
         const assigneeMax = users.length;
         const assigneeId = Math.floor(Math.random() * assigneeMax);
