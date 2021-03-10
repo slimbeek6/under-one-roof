@@ -1,15 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { Link, withRouter } from "react-router-dom";
 import API from "../utils/API";
 import { useExpenseContext } from "../utils/GlobalState";
-import { ADD_EXPENSE, DELETE_EXPENSE, GET_EXPENSES } from "../utils/actions";
+import { GET_EXPENSES } from "../utils/actions";
 import "./style.css";
-import  ExpenseTableRow  from "../components/ExpenseTableRows";
 import { RadialChart, XAxis, XYPlot, YAxis, VerticalBarSeries, LabelSeries } from "react-vis";
 import PaymentList from "../components/PaymentList";
 import AuthService from "../services/auth.service";
-
-
+import { useTable, useSortBy } from "react-table";
+import dayjs from "dayjs";
 
 const Budget = () => {
     const expnameRef = useRef();
@@ -19,9 +17,7 @@ const Budget = () => {
     const paidBy = useRef();
     const currentUser = AuthService.getCurrentUser();
     
-    
     const [state, dispatch] = useExpenseContext();
-    
 
     const sortExpenses = (data) => {
         data.sort(function (a, b) {
@@ -35,8 +31,6 @@ const Budget = () => {
     }
 
     let HomeId = getHomeId();
-    // console.log(HomeId);
-
 
     const getExpenses = (data) => {
         let id = data;
@@ -49,17 +43,12 @@ const Budget = () => {
                 type: GET_EXPENSES,
                 expenses: results.data
             });
-            
-            // console.log(state);
-        })
-        
+        })       
     }
 
     useEffect (() => {
         getExpenses(HomeId);
-    }, []);
-
-    
+    }, []);  
     
     const pieDataFormat = (data) => {
         
@@ -77,7 +66,6 @@ const Budget = () => {
             }
         }
 
-        // console.log(utilitiesSum);
         const pieChart = [];
         pieChart.push({angle: rentSum, label: rentSum});
         pieChart.push({angle: utilitiesSum, label: utilitiesSum});
@@ -109,16 +97,12 @@ const Budget = () => {
                 if (data.expenses[i].paid === true) {
                     otherPaid += parseInt(data.expenses[i].expenseAmount);
                 }
-            }
-
-            
+            }            
         }
 
         let totalOwed = [{x: "Rent", y: rentOwed}, {x: "Utilities", y: utilitiesOwed}, {x: "Other", y: otherOwed}];
         let totalPaid = [{x: "Rent", y: rentPaid}, {x: "Utilities", y: utilitiesPaid}, {x: "Other", y: otherPaid}];
         let exportedData = {totalOwed: totalOwed, totalPaid: totalPaid};
-
-        
 
         return exportedData;
     }
@@ -135,9 +119,7 @@ const Budget = () => {
     }
 
 
-    const addExpense = () => {
-        
-        
+    const addExpense = () => {        
         let newExpense = {
             expenseName: expnameRef.current.value,
             expenseAmount: expamtRef.current.value,
@@ -147,18 +129,13 @@ const Budget = () => {
             expenseDate: Date.now(),
             HomeId: currentUser.id
         }
-        // console.log(newExpense);
+        
         API.addExpense(newExpense);
     };
-
-    
-    // console.log(state);
     
     const pieData = pieDataFormat(state);
     const barData = barDataFormat(state);
     const barLabels = barLabelData(barData); 
-    // console.log(barData);
-    // console.log(barLabels);
 
     let labelData = barLabels;
 
@@ -189,6 +166,79 @@ const Budget = () => {
 
     const totalOwed = totalOwedFormat(barData);
     const totalPaid = totalPaidFormat(barData);
+
+    const getRowData = (data) => {
+        let expData = [];
+        let rowObj = {};
+        for ( var i=0; i < data.expenses.length; i++) {
+            let keys = Object.keys(data.expenses[i]);
+            keys.shift();
+            keys.pop();
+            keys.pop();
+            keys.pop();
+            keys.push("Edit");
+            keys.push("Delete");
+
+            let values = Object.values(data.expenses[i]);
+            values.shift();
+            values.pop();
+            values.pop();
+            values.pop();
+            values.push("<button id='edit' className='btn btn-success mx-auto'></button>");
+            values.push("<button id='delete' className='btn btn-success mx-auto'></button>");
+            values[2] = dayjs(values[2]).format("MMM DD");
+
+            keys.forEach((key, k) => rowObj[key] = values[k]);
+            
+            expData.push(rowObj);
+            rowObj = {};
+        }
+        return expData;
+    }
+
+    const rowData = getRowData(state);
+    console.log(rowData);
+
+    const data = React.useMemo(
+        ()=> rowData,
+        []
+    );
+
+    const columns = React.useMemo(
+        () => [
+            {
+                Header: "Expense",
+                accessor: "expenseName"
+            },
+            {
+                Header: "Amount",
+                accessor: "expenseAmount"
+            },
+            {
+                Header: "Date",
+                accessor: "expenseDate"
+            },
+            {
+                Header: "Type",
+                accessor: "expenseType"
+            },
+            {
+                Header: "Paid By",
+                accessor: "paidBy"
+            },
+        ],
+        []
+    );
+
+    const tableInstance = useTable({ columns, data }, useSortBy)
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+    } = tableInstance;
 
     return (
             <div className="container-fluid px-5">
@@ -264,22 +314,44 @@ const Budget = () => {
                                 </form>
                             </div>
                             <div className="col-xxl-6 col-xl-10">
-                                <h3 className="medium text-center">Largest Expenses</h3>
-                                <table className="table" border="1" style={{textAlign: "center"}}>                           
-                                    <tr>
-                                        <th>Expense Name</th>
-                                        <th>Expense Amount</th>
-                                        <th>Expense Type</th>
-                                        <th>Expense Paid?</th>
-                                        <th>Expense Paid By</th>
-                                    </tr>
-                                    {state.expenses.map(expense => (
-                                        <ExpenseTableRow  expenseName={expense.expenseName} expenseAmount={expense.expenseAmount} expenseType={expense.expenseType} paid={expense.paid} paidBy={expense.paidBy} /> 
-                                    ))}
-                                        
-                                    
+                                <h3 className="medium text-center">Largest Expenses:</h3>
+                                <table className="table" border="1" {...getTableProps()} style={{textAlign: "center"}}>
+                                    <thead className="table-header">
+                                        {headerGroups.map(headerGroup => (
+                                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                                {headerGroup.headers.map(column =>(
+                                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                                        {column.render("Header")}
+                                                        <span>
+                                                            {column.isSorted 
+                                                                ? column.isSortedDesc
+                                                                    ? "🔽"
+                                                                    : "🔼"
+                                                                : ""}
+                                                        </span>
+                                                    </th>
+                                                ))}
+                                            </tr>
+                                        ))}
+                                    </thead>
+                                    <tbody {...getTableBodyProps()}>
+                                        {rows.map(row => {
+                                            prepareRow(row)
+                                            return (
+                                                <tr {...row.getRowProps()}>
+                                                    {row.cells.map(cell => {
+                                                        return (
+                                                            <td {...cell.getCellProps()} >
+                                                                {cell.render("Cell")}
+                                                            </td>
+                                                        )
+                                                    })}
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
                                 </table>                       
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
