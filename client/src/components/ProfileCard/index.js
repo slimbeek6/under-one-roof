@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 function ProfileCard(props) {
   return (
     <>
       <h2 className="col-12 text-center mt-4 display-4 purple bold">Who are you?</h2>
-
       {props.users.map(user => {
         return (
           <Link className="col-3 card mx-3 imitate-btn" to="/landing" key={user.id}>

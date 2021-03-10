@@ -9,7 +9,6 @@ function Calendar() {
   const hideForm = () => {
     setDisplayForm(false)
   }
-
   const showForm = () => {
     setDisplayForm(true)
   }

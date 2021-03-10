@@ -6,7 +6,6 @@ import AuthService from "../../services/auth.service";
 function EventForm(props) {
   const calDateRef = useRef();
   const calTitleRef = useRef();
-
   const currentUser = AuthService.getCurrentUser();
 
   const getHomeId = () => {
@@ -22,7 +21,6 @@ function EventForm(props) {
       eventName: calTitleRef.current.value,
       HomeId: HomeId
     }
-    console.log(newEvent);
     API.saveEvent(newEvent).catch(err => console.error(err))
   }
 
