@@ -32,6 +32,7 @@ function App () {
       <Navbar />
         <ExpenseProvider>
           <Switch>
+            {/* Public Routes */}
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />

@@ -17,6 +17,7 @@ function ContactCard(props) {
                             <p className="medium text-center mt-3">{list.emergencyRelationship}</p>
                             <p className="medium text-center mt-3">{list.emergencyPhone}</p>
                     </div>
+                    
                 )
             })}
         </>

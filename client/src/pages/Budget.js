@@ -10,21 +10,16 @@ import { useTable, useSortBy } from "react-table";
 import dayjs from "dayjs";
 
 const Budget = () => {
+    // Getting data from state and page
     const expnameRef = useRef();
     const expamtRef = useRef();
     const exptypeRef = useRef();
     const paid = useRef();
     const paidBy = useRef();
     const currentUser = AuthService.getCurrentUser();
-    
     const [state, dispatch] = useExpenseContext();
 
-    const sortExpenses = (data) => {
-        data.sort(function (a, b) {
-            return b.expenseAmount - a.expenseAmount;
-        });
-    }
-    
+    // Data Retrieval Functions
     const getHomeId = () => {
         const HomeId = currentUser.id;
         return HomeId;
@@ -49,9 +44,32 @@ const Budget = () => {
     useEffect (() => {
         getExpenses(HomeId);
     }, []);  
-    
-    const pieDataFormat = (data) => {
+
+    // Data Add Function
+    const addExpense = () => {        
+        let newExpense = {
+            expenseName: expnameRef.current.value,
+            expenseAmount: expamtRef.current.value,
+            expenseType: exptypeRef.current.value,
+            paid: paid.current.checked,
+            paidBy: paidBy.current.value,
+            expenseDate: Date.now(),
+            HomeId: currentUser.id
+        }
         
+        API.addExpense(newExpense);
+    };
+
+
+    // Data Clean-up Functions
+    const sortExpenses = (data) => {
+        data.sort(function (a, b) {
+            return b.expenseAmount - a.expenseAmount;
+        });
+    }  
+
+    const pieDataFormat = (data) => {
+        // Create totals variables
         let rentSum = 0;
         let utilitiesSum = 0;
         let otherSum = 0;
@@ -74,6 +92,7 @@ const Budget = () => {
     }
 
     const barDataFormat = (data) => {
+        // Create totals variables
         let rentOwed = 0;
         let rentPaid = 0;
         let utilitiesOwed = 0;
@@ -118,21 +137,6 @@ const Budget = () => {
         return labelData
     }
 
-
-    const addExpense = () => {        
-        let newExpense = {
-            expenseName: expnameRef.current.value,
-            expenseAmount: expamtRef.current.value,
-            expenseType: exptypeRef.current.value,
-            paid: paid.current.checked,
-            paidBy: paidBy.current.value,
-            expenseDate: Date.now(),
-            HomeId: currentUser.id
-        }
-        
-        API.addExpense(newExpense);
-    };
-    
     const pieData = pieDataFormat(state);
     const barData = barDataFormat(state);
     const barLabels = barLabelData(barData); 
@@ -197,8 +201,6 @@ const Budget = () => {
     }
 
     const rowData = getRowData(state);
-    console.log(rowData);
-
     const data = React.useMemo(
         ()=> rowData,
         []

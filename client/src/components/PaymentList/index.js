@@ -2,11 +2,9 @@ import React from "react";
 import PaymentListItem from "../PaymentListItem";
 
 export default function PaymentList(props) {
-    // console.log(props.data);
     var roomies = [];
 
     const cleanData = (data) => {
-        // console.log(data.expenses.length);
         var roomObj = {};
 
         for( var i=0; i< data.expenses.length; i++) {
@@ -22,13 +20,10 @@ export default function PaymentList(props) {
                 roomObj[key] = amount;
                 roomies.push(roomObj);
             }
-        }
-
-        
+        }    
     }
 
     cleanData(props.data);
-    console.log(roomies);
 
     return (
         <div className="d-flex justify-content-center border">

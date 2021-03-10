@@ -4,8 +4,11 @@ import CalEvent from '../components/CalEvent';
 import EventForm from '../components/EventForm';
 
 function Calendar() {
+  // Set up Stately variables
   const [displayForm, setDisplayForm] = useState(false);
 
+
+  // Manage the modals
   const hideForm = () => {
     setDisplayForm(false)
   }
