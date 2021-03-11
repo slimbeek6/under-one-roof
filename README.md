@@ -42,7 +42,7 @@ This is a full stack web application that allows for a household to create a uni
 <!-- This is a root HTML link if you want to use it to add more photos to the assets/README/ directory -->
 <!-- ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/) -->
 
-#### SignUp & Login Validation with React
+#### SignUp Validation with React
 
 We used the react-validation library to validate forms. It is not easy to validate forms in react due to the one-way flow of data. We can't affect forms from the inputs in an easy way. React-validation provides several components which are 'connected' to the form via the input's method attached by the Form component.
 
@@ -99,10 +99,35 @@ const vpassword = (value) => {
   }
 };
 ```
+===================================================
+
+![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/SuccessfulSignUp.png)
 
 For the SignUp page, we used the message response from this form validation to trigger a ternary operator. A failed response returns an alert-danger with the message. A successful response returns a success alert and a Login redirect link.
 
-![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/)
+```javascript
+{message && (
+<div className="form-group">
+    <div
+    className={ successful ? "alert alert-success" : "alert alert-danger" }
+    role="alert"
+    >
+    {message}
+    </div>
+    <div className="d-flex justify-content-center">
+    <a href="/login">
+        <img src="/assets/img/Login/loginICON-72.png" alt="Login button image" />
+    </a>
+    </div>
+</div>
+)}
+```
+
+### Login Validation with React
+
+
+
+
 
 
 ## Authors
