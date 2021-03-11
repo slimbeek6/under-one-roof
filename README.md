@@ -6,7 +6,7 @@ This is a full stack web application that allows for a household to create a uni
 
 [DeployedSite]()
 
-![IMAGE]()
+![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/UnderOneRoofDEMO.gif)
 <br>
 
 ## Table of Contents:
