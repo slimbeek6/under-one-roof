@@ -8,7 +8,7 @@ function ProfileCard(props) {
       {props.users.map(user => {
         return (
           <Link className="col-lg-3 col-md-4 card mx-3 imitate-btn" to="/landing" key={user.id}>
-            <img className="img-fluid profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <img className="img-fluid profile-img-card" src="/assets/img/Profile/profileICON-96.png" />
             <h2 className="medium text-center mt-3">{user.userName}</h2>
           </Link>
         )
