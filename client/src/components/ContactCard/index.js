@@ -7,7 +7,7 @@ function ContactCard(props) {
                 return (
                     <div className="col-xl-3 col-lg-5 col-sm-7 card mx-3" key={list.id}>
                         <div className="blueBG white">
-                            <img className="img-fluid profile-img-card" src="/assets/img/Profile/profileICON-96.png" />
+                            <img className="img-fluid profile-img-card" src="/assets/img/ProfileCard/profileCardICON-96.png" />
                             <h2 className="medium text-center mt-3">{list.userName}</h2>
                         </div>
                             <p className="medium text-center mt-3">{list.contactPhone}</p>
