@@ -1,6 +1,7 @@
 # Under One Roof
 
 ## Project Summary:
+=================================================================
 
 This is a full stack web application that allows for a household to create a unique account, add roommates as users with important contact information, create a chore list and fairly delegate them out, add expenses and dynamically update a household budget, and add events for important dates and reminders. Each user has their own homepage that aggregates the information pertinent to them. The stack used is Sequelize, Express, React, and Node.
 
@@ -10,17 +11,19 @@ This is a full stack web application that allows for a household to create a uni
 <br>
 
 ## Table of Contents:
+=================================================================
 
 * [Technologies Used](##technologies-used:)
 * [Installation](##installation:)
 * [Process](##process:)
-    - [SignUp Validation with React](####signup-validation-with-react)
-    - [Login Validation with React](####login-validation-&-jwt-creation)
+    - [SignUp Validation with React](###signup-validation-with-react)
+    - [Login Validation with React](###login-validation-&-jwt-creation)
 * [Authors](##authors:)
 * [License](##license:)
 * [Acknowledgements](##acknowledgements:)
 
 ## Technologies Used:
+=================================================================
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -48,6 +51,7 @@ This is a full stack web application that allows for a household to create a uni
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Installation:
+=================================================================
 
 On the server side, run these command lines in the terminal:
 
@@ -62,11 +66,11 @@ npm i @testing-library/jest-dom @testing-library/react @testing-library/user-eve
 ```
 
 ## Process:
-
+=================================================================
 <!-- This is a root HTML IMAGE link if you want to use it to add more photos to the assets/README/ directory -->
 <!-- ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/) -->
 
-#### SignUp Validation with React
+### SignUp Validation with React
 
 We used the react-validation library to validate forms. It is not easy to validate forms in react due to the one-way flow of data. We can't affect forms from the inputs in an easy way. React-validation provides several components which are 'connected' to the form via the input's method attached by the Form component.
 
@@ -123,7 +127,6 @@ const vpassword = (value) => {
   }
 };
 ```
-===================================================
 
 ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/SuccessfulSignUp.png)
 
@@ -146,8 +149,9 @@ For the SignUp page, we used the message response from this form validation to t
 </div>
 )}
 ```
+<br>
 
-#### Login Validation & JWT Creation
+### Login Validation & JWT Creation
 
 ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/LoginValidation.jpg)
 
