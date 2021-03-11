@@ -11,12 +11,14 @@ This is a full stack web application that allows for a household to create a uni
 
 ## Table of Contents:
 
-* [Technologies Used](#technologies-used:)
-* [Installation](#installation:)
-* [Process](#process:)
-* [Authors](#authors:)
-* [License](#license:)
-* [Acknowledgements](#acknowledgements:)
+* [Technologies Used](##technologies-used:)
+* [Installation](##installation:)
+* [Process](##process:)
+    - [SignUp Validation with React](####signup-validation-with-react)
+    - [Login Validation with React](####login-validation-&-jwt-creation)
+* [Authors](##authors:)
+* [License](##license:)
+* [Acknowledgements](##acknowledgements:)
 
 ## Technologies Used:
 
@@ -37,9 +39,23 @@ This is a full stack web application that allows for a household to create a uni
 - [mysql2](https://www.npmjs.com/package/mysql2)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
+## Installation:
+
+On the server side, run these command lines in the terminal:
+
+```
+npm i axios bcryptjs cors dayjs express if-env jsonwebtoken mysql2 path react react-table react-vis sequelize
+```
+
+On the client side, run these command lines
+
+```
+npm i @testing-library/jest-dom @testing-library/react @testing-library/user-event dayjs moment react react-calendar react-dayjs react-dom react-router-dom react-scripts react-table react-validation sequelize web-vitals
+```
+
 ## Process:
 
-<!-- This is a root HTML link if you want to use it to add more photos to the assets/README/ directory -->
+<!-- This is a root HTML IMAGE link if you want to use it to add more photos to the assets/README/ directory -->
 <!-- ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/) -->
 
 #### SignUp Validation with React
@@ -103,7 +119,7 @@ const vpassword = (value) => {
 
 ![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/SuccessfulSignUp.png)
 
-For the SignUp page, we used the message response from this form validation to trigger a ternary operator. A failed response returns an alert-danger with the message. A successful response returns a success alert and a Login redirect link.
+For the SignUp page, we used the message response from this form validation to trigger a ternary operator. A failed response returns an alert-danger with the message. A successful response returns a success alert with the message and redirect link to the Login page.
 
 ```javascript
 {message && (
@@ -123,11 +139,53 @@ For the SignUp page, we used the message response from this form validation to t
 )}
 ```
 
-### Login Validation with React
+#### Login Validation & JWT Creation
 
+![IMAGE](https://github.com/profjjk/under-one-roof/blob/main/client/public/assets/README/LoginValidation.jpg)
 
+In this example, we validate the login credentials on the server side and grant a JWT for authentication only if the user is found with a corresponding hashed password. This token has a 24hr expiration for access.
 
+```javascript
+exports.signin = (req, res) => {
+    // Sign in from Database
+    Home.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+        .then(user => {
+            if (!user) {
+                return res.status(404).send({ message: "User Not found." });
+            }
 
+            var passwordIsValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+            );
+
+            if (!passwordIsValid) {
+                return res.status(401).send({
+                    accessToken: null,
+                    message: "Invalid Password!"
+                });
+            }
+
+            var token = jwt.sign({ id: user.id }, config.secret, {
+                expiresIn: 86400 // 24 hours
+            });
+
+            res.status(200).send({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                accessToken: token
+            }); 
+        })
+        .catch(err => {
+            res.status(500).send({ message: err.message });
+        });
+};
+```
 
 
 ## Authors
