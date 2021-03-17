@@ -3,7 +3,6 @@ import API from '../utils/API';
 import ChoresCard from '../components/RecentCard/ChoresCard';
 import EventsCard from '../components/RecentCard/EventsCard';
 import ExpensesCard from '../components/RecentCard/ExpensesCard';
-import UserCard from '../components/RecentCard/UserCard';
 import ContactCard from '../components/ContactCard/index';
 import UserService from "../services/user.service";
 import AuthService from "../services/auth.service";
@@ -31,6 +30,7 @@ const Landing = () => {
 
   let HomeId = getHomeId();
 
+  
   useEffect(() => {
     API.getEvents(HomeId)
       .then(events => {
